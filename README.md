@@ -2,17 +2,17 @@
 
 ## Projektbeskrivning
 
-Ni ska tillsammans skapa en hemsida likt Netflix där man välja och söka bland olikatillgängliga filmer. Filmerna behöver dock av naturliga skäl inte kunna spelas upp.Istället ska man kunna se en sammanfattning och lite annan information.
+Ni ska tillsammans skapa en hemsida likt Netflix där man välja och söka bland olika tillgängliga filmer. Filmerna behöver dock av naturliga skäl inte kunna spelas upp. Istället ska man kunna se en sammanfattning och lite annan information.
 
 ### Features [G]
 
-Samtliga features måste vara implementerade för ett G. Sidan är uppdelad i fyra sidor:hem, kategori, bokmärkta och en film-view. Indata finns i movies.json.
+Samtliga features måste vara implementerade för ett G. Sidan är uppdelad i fyra sidor: hem, kategori, bokmärkta och en film-view. Indata finns i `movies.json`.
 
 #### Hem
 
-- [ ] Det ska finnas en sektion "Trending" där man kan se några olika filmer somtrendar just nu.
+- [ ] Det ska finnas en sektion "Trending" där man kan se några olika filmer som trendar just nu.
 
-- [ ] Det ska finnas en sektion "Recommended for you" där 4-10 rekommenderade filmervisas. Dessa kan ni slumpa fram. Du får dock inte rekommendera en film somfinns någon annanstans i flödet, exempelvis i trending.
+- [ ] Det ska finnas en sektion "Recommended for you" där 4-10 rekommenderade filmer visas. Dessa kan ni slumpa fram. Du får dock inte rekommendera en film som finns någon annanstans i flödet, exempelvis i trending.
 
 - [ ] Både "Trending" och "Recommended for you" ska ligga i en Carousel.
 
@@ -22,13 +22,13 @@ Samtliga features måste vara implementerade för ett G. Sidan är uppdelad i fy
 
 #### Kategori
 
-- [ ] Användaren möts av en skärm där man kan välja bland alla tillgängligakategorier. Tänk på att fler kategorier kan tillkomma i framtiden.
+- [ ] Användaren möts av en skärm där man kan välja bland alla tillgängliga kategorier. Tänk på att fler kategorier kan tillkomma i framtiden.
 
 #### Bokmärkta
 
 - [ ] Här ska du kunna se alla dina bokmärkta filmer.
 
-- [ ] Bokmärkningen ska kunna hålla igenom en hel session. Man ska alltså kunnarefresha sidan.
+- [ ] Bokmärkningen ska kunna hålla igenom en hel session. Man ska alltså kunna refresha sidan.
 
 #### Film-view
 
@@ -40,7 +40,7 @@ Samtliga features måste vara implementerade för ett G. Sidan är uppdelad i fy
 
 #### För alla views
 
-- [ ] Klickar man på en thumbnail för en film ska man gå till film-viewen för denaktuella filmen.
+- [ ] Klickar man på en thumbnail för en film ska man gå till film-viewen för den aktuella filmen.
 
 - [ ] Man ska kunna bokmärka en film från thumbnailen.
 
@@ -66,7 +66,7 @@ Samtliga features måste vara implementerade för ett G. Sidan är uppdelad i fy
 
 - [ ] Applikationen har en automatiserad deployment via exempelvis GitHubActions.
 
-- [ ] Applikationen har automatiska kontroller för att förhindra att dålig kodgår igenom Pull Requests.
+- [ ] Applikationen har automatiska kontroller för att förhindra att dålig kod går igenom Pull Requests.
 
 ### Workflow
 
@@ -78,55 +78,55 @@ Samtliga features måste vara implementerade för ett G. Sidan är uppdelad i fy
 
 #### VG
 
-- [ ] Gruppen har en historik i main som är lätt att följa. Historik i era egnabranches är irrelevant.
+- [ ] Gruppen har en historik i main som är lätt att följa. Historik i era egna branches är irrelevant.
 
-- [ ] Gruppen har lagt fram Pull Requests som är enkla att förstå och ge förslagtill.
+- [ ] Gruppen har lagt fram Pull Requests som är enkla att förstå och ge förslag till.
 
-- [ ] Gruppen har granskat inkommande Pull Requests väl och ger förslag påförbättringar där det finns möjlighet.
+- [ ] Gruppen har granskat inkommande Pull Requests väl och ger förslag på förbättringar där det finns möjlighet.
 
 - [ ] Projektets arbetsgång är i övrigt lätt att följa.
 
 ### Vänligen notera att:
 
-- För många oskäliga pushes direkt till main kommer resultera i ett underkäntprojekt.
+- För många oskäliga pushes direkt till main kommer resultera i ett underkänt projekt.
 
 - Pull Requests får i regel inte godkännas av samma person som lade fram den.
 
 - Varje individ måste bidra med ett skäligt antal Pull Requests.
 
-- Individer som inte bidragit tillräckligt mycket till projektet kan ensamtunderkännas, medan övriga i gruppen erhåller ett godkänt/väl godkänt betyg.
+- Individer som inte bidragit tillräckligt mycket till projektet kan ensamt underkännas, medan övriga i gruppen erhåller ett godkänt/väl godkänt betyg.
 
-- Jag vill bli inbjuden till repot med adminrättigheter från början. Jag kommerendast att kika på historiken i main, Pull Requests och Issues. Era egnabranches kommer inte utgöra bedömningsunderlag.
+- Jag vill bli inbjuden till repot med adminrättigheter från början. Jag kommer endast att kika på historiken i main, Pull Requests och Issues. Era egna branches kommer inte utgöra bedömningsunderlag.
 
-- Tester ska skrivas tillsammans med koden. Alltså direkt före eller direkt efterimplementationen. I commits och Pull Requests ska det finnas bra testcasesockså.
+- Tester ska skrivas tillsammans med koden. Alltså direkt före eller direkt efter implementationen. I commits och Pull Requests ska det finnas bra testcases också.
 
-- Refaktorering är vanligt. Jag förväntar mig inte att ni ska ha skrivit denperfekta komponenten från början. Jag är mer intresserad av arbetsflödet.
+- Refaktorering är vanligt. Jag förväntar mig inte att ni ska ha skrivit den perfekta komponenten från början. Jag är mer intresserad av arbetsflödet.
 
 ### Övrigt
 
-Det kommer sannolikt att begås misstag under projektets gång och det är en naturligdel av arbetet som utvecklare. Pull Requests med buggar och/eller som förvirrarhistoriken kommer sannolikt att gå igenom vid enstaka tillfällen.
+Det kommer sannolikt att begås misstag under projektets gång och det är en naturlig del av arbetet som utvecklare. Pull Requests med buggar och/eller som förvirrar historiken kommer sannolikt att gå igenom vid enstaka tillfällen.
 
-Varje grupp ges _möjlighet_ att göra en skriftlig inlämning där man kan resonera kringvad som gått fel, vilka kriterier som brutits och vad man göra för att förbättra dettill nästa gång. Om man gör ett misstag betyder det inte att gruppen inte kan nå dehögre kraven. Man behöver då istället resonera väl och peka ut misstagen som begåttsoch vad som skulle gjorts annorlunda. Jag vill i en eventuell inlämning alltså ha:
+Varje grupp ges _möjlighet_ att göra en skriftlig inlämning där man kan resonera kring vad som gått fel, vilka kriterier som brutits och vad man göra för att förbättra det till nästa gång. Om man gör ett misstag betyder det inte att gruppen inte kan nå de högre kraven. Man behöver då istället resonera väl och peka ut misstagen som begåtts och vad som skulle gjorts annorlunda. Jag vill i en eventuell inlämning alltså ha:
 
 - Vilka misstag som begåtts.
 - Vad man skulle gjort annorlunda.
 - Om man kan göra något för att förhindra detta i framtiden.
 
-Stöd gärna detta med referenser till commits och skärmdumpar så att jag lätt kanförstå situationen.
+Stöd gärna detta med referenser till commits och skärmdumpar så att jag lätt kan förstå situationen.
 
-Inlämningen är inte obligatorisk. Grupper kan uppnå ett väl godkänt betyg utaninlämningen, givet att de haft ett bra arbetsflöde.
+Inlämningen är inte obligatorisk. Grupper kan uppnå ett väl godkänt betyg utan inlämningen, givet att de haft ett bra arbetsflöde.
 
-Om det råder oenighet (eller ovilja) i gruppen om upplägget av arbetsflöde kanenskilda medlemmar i gruppen antingen ensamt eller tillsammans skriva ovanståendeinlämning med resonemang om processen. Enskilda elever kan då uppnå ett högre betyggivet att de i övrigt har bidragit mycket till projektet.
+Om det råder oenighet (eller ovilja) i gruppen om upplägget av arbetsflöde kan enskilda medlemmar i gruppen antingen ensamt eller tillsammans skriva ovanstående inlämning med resonemang om processen. Enskilda elever kan då uppnå ett högre betyg givet att de i övrigt har bidragit mycket till projektet.
 
 ### Tips
 
 1. Börja med att bjuda in mig i repot.
-2. Börja sedan med att göra era issues. Gör dem så små och avgränsade som möjligt.Lägg upp en preliminär plan, och var beredd på att justera den preliminäraplanen efter projektets gång. Ni kommer komma på fler Issues med projektetsgång, det är en naturlig del av agil utveckling.
-3. Gör en basic plan för er arkitektur. Vilka komponenter ska finnas med? Hur skadata flöda emellan dem? Var inte rädd för fail-fast och sedan göra om.
-4. Hur delar man upp projektet? Se till att ha ett upplägg som gör er så obereondeav varandra som möjligt.
-5. Merga små branches ofta, snarare än stora branches sällan. Det ger er möjlighetatt undvika många merge conflicts.
-6. Börja med deployment-pipelinen direkt. Det är mycket lättare att deploya småprojekt än stora. Jobbar man agilt så sätter man upp GitHub Actions pararelltmed utvecklingen.
+2. Börja sedan med att göra era issues. Gör dem så små och avgränsade som möjligt. Lägg upp en preliminär plan, och var beredd på att justera den preliminära planen efter projektets gång. Ni kommer komma på fler Issues med projektets gång, det är en naturlig del av agil utveckling.
+3. Gör en basic plan för er arkitektur. Vilka komponenter ska finnas med? Hur ska data flöda emellan dem? Var inte rädd för fail-fast och sedan göra om.
+4. Hur delar man upp projektet? Se till att ha ett upplägg som gör er så obereonde av varandra som möjligt.
+5. Merga små branches ofta, snarare än stora branches sällan. Det ger er möjlighet att undvika många merge conflicts.
+6. Börja med deployment-pipelinen direkt. Det är mycket lättare att deploya småprojekt än stora. Jobbar man agilt så sätter man upp GitHub Actions pararellt med utvecklingen.
 7. Boka in handledning med mig och förbered frågor, det kommer hjälpa er.
-8. Rebasa din egen branch så fort någonting hänt på main. Kommunicera därför gärnamed varandra om någonting hänt på main.
+8. Rebasa din egen branch så fort någonting hänt på main. Kommunicera därför gärna med varandra om någonting hänt på main.
 9. Dagliga möten underlättar enormt. Kom överens om hur ni ska kommunicera!
-10. Någon kommer sannolikt behöva ta ansvar för att skriva de storaintegrationstesterna.
+10. Någon kommer sannolikt behöva ta ansvar för att skriva de stora integrationstesterna.
