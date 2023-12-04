@@ -3,8 +3,8 @@ import * as ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import './index.css';
-import MovieView from './MovieView';
 import ErrorPage from './routes/ErrorPage';
+import MovieView from './routes/MovieView';
 
 const router = createBrowserRouter([
   {
