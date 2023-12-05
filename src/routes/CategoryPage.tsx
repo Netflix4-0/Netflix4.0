@@ -3,24 +3,16 @@ import { movies } from '../data';
 
 export const CategoryPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
-  const genres = [
-    'Drama',
-    'Crime',
-    'Action',
-    'Biography',
-    'History',
-    'Adventure',
-    'Western',
-    'Romance',
-    'Sci-Fi',
-    'Fantasy',
-    'Thriller',
-    'War',
-    'Mystery',
-    'Music',
-    'Horror',
-  ];
-  const sortedGenres = genres.sort();
+  // Collect all unique genres from movies
+  const allGenres = movies.reduce((genres, movie) => {
+    const movieGenres = movie.genre.split(',').map(genre => genre.trim());
+    movieGenres.forEach(genre => {
+      if (!genres.includes(genre)) {
+        genres.push(genre);
+      }
+    });
+    return genres;
+  }, [] as string[]);
 
   const handleChangeSelectedCategory = (
     e: React.ChangeEvent<HTMLSelectElement>
@@ -37,7 +29,7 @@ export const CategoryPage = () => {
     <>
       <select value={selectedCategory} onChange={handleChangeSelectedCategory}>
         <option value=''>Categories</option>
-        {sortedGenres.map((genre, index) => (
+        {allGenres.map((genre, index) => (
           <option key={index} value={genre}>
             {genre}
           </option>
