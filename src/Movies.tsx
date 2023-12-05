@@ -22,17 +22,18 @@ const Movies = () => {
           placeholder="Search for a movie"
           />
 
-          {search === '' ? movies.map((m, index) => (
-              <div key={index}>{m.title}</div>
-            )) : movies.filter(m => m.title.toLowerCase().includes(search.toLowerCase())).map((m, index) => (
-              <div key={index}>{m.title}</div>
-            ))}
-            
-            
-
-
-
-
+{search === '' ? 
+        movies.map((m, index) => (
+          <div key={index}>{m.title}</div>
+        )) 
+        : 
+        movies.filter(m => 
+          m.title.toLowerCase().includes(search.toLowerCase()) ||
+          m.actors.some(actor => actor.toLowerCase().includes(search.toLowerCase()))
+        ).map((m, index) => (
+          <div key={index}>{m.title}</div>
+        ))}
+          
         </div>
     )
 }
