@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { movies } from '../data';
 
 export const CategoryPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
+
   // Collect all unique genres from movies
   const allGenres = movies.reduce((genres, movie) => {
     const movieGenres = movie.genre.split(',').map(genre => genre.trim());
@@ -14,10 +15,8 @@ export const CategoryPage = () => {
     return genres;
   }, [] as string[]);
 
-  const handleChangeSelectedCategory = (
-    e: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    setSelectedCategory(e.target.value);
+  const handleChangeSelectedCategory = (genre: string) => {
+    setSelectedCategory(genre);
   };
 
   // Filter movies based on the selected category or display all movies if no category is selected
@@ -27,17 +26,19 @@ export const CategoryPage = () => {
 
   return (
     <>
-      <select value={selectedCategory} onChange={handleChangeSelectedCategory}>
-        <option value=''>Categories</option>
+      <div>
         {allGenres.map((genre, index) => (
-          <option key={index} value={genre}>
+          <button
+            key={index}
+            onClick={() => handleChangeSelectedCategory(genre)}
+          >
             {genre}
-          </option>
+          </button>
         ))}
-      </select>
+      </div>
       {filteredMovies.map((movie, index) => (
         <div key={index}>
-          <div>{movie.title}</div>
+          <div data-testid="movie">{movie.title}</div>
         </div>
       ))}
     </>
