@@ -1,5 +1,20 @@
+.searchBox {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.searchInput {
+  border-radius: 0.5rem;
+  height: 2rem;
+  width: 12rem;
+  padding-left: 0.4rem;
+  outline: none;
+}
+
 .movieSection {
-width: 100%;
+  margin-top: 2rem;
+  width: 100%;
 }
 
 .allMoviesInGenre::-webkit-scrollbar {
@@ -22,8 +37,12 @@ width: 100%;
   margin-bottom: 2rem;
 }
 .moviePicture {
-  width: 20rem;
-  height: 90%;
-  /* object-fit: cover; */
+  width: 15rem;
+  height: 20rem;
+  object-fit: cover;
 }
+.movieTitle {
+  height: 2rem;
+}
+
 

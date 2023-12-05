@@ -16,12 +16,17 @@ export const Movies = () => {
 
   return (
     <div>
+      <div className="searchBox">
+        <h4>Search for your favorites</h4>
       <input
+        className="searchInput"
         type="text"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search for a movie"
       />
+
+      </div>
 
       <div className="movieSection">
         {search === ''
@@ -31,8 +36,8 @@ export const Movies = () => {
                 <div className="allMoviesInGenre">
                   {filteredMovies.filter(movie => movie.genre.includes(genre)).map((m, index) => (
                     <div className="movie" key={index}>
-                      <p>{m.title}</p>
-                      <img className="moviePicture" src={m.poster} alt="movie" />
+                      <p className="movieTitle">{m.title}</p>
+                      <img className="moviePicture" src={m.thumbnail} alt="movie" />
                     </div>
                   ))}
                 </div>
@@ -40,7 +45,7 @@ export const Movies = () => {
             ))
           : filteredMovies.map((m, index) => (
               <div key={index} className="movie">
-                <div>{m.title}</div>
+                <div className="movieTitle">{m.title}</div>
                 <img className="moviePicture" src={m.poster} alt="movie" />
               </div>
             ))
