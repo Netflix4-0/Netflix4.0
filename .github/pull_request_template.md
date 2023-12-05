@@ -2,9 +2,6 @@
 
 Länka till ärende här...
 
-## Utredning
-
-Vad utredningen kring problemet har lett till...
 
 ## Lösning / Implementation
 
