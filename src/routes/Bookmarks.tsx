@@ -1,11 +1,12 @@
 import { useContext } from 'react';
-import { BookmarkContext } from '../context/bookmarkContext';
+import { BookmarkContext, Movie } from '../context/bookmarkContext';
 import moviesData from '../data/movies.json';
 
 export const Bookmarks = () => {
-  const { bookmarks, addBookmark } = useContext(BookmarkContext);
+  const { bookmarks, addBookmark, removeBookmark } =
+    useContext(BookmarkContext);
 
-  const movies = moviesData;
+  const movies: Movie[] = moviesData as Movie[];
 
   return (
     <>
@@ -16,7 +17,11 @@ export const Bookmarks = () => {
           <>
             <li key={movie.poster}>{movie.title}</li>
             <li>
-              <button onClick={() => addBookmark(movie.title)}>
+              <button
+                onClick={() => addBookmark(movie)}
+                disabled={bookmarks.includes(movie)}
+              >
+                {' '}
                 Add bookmark
               </button>
             </li>
@@ -24,8 +29,16 @@ export const Bookmarks = () => {
         ))}
       </ul>
       <ul>
+        <h2>My bookmarked movies</h2>
         {bookmarks.map(bookmark => (
-          <li key={bookmark}>{bookmark}</li>
+          <>
+            <li key={bookmark.poster}>{bookmark.title}</li>
+            <li>
+              <button onClick={() => removeBookmark(bookmark)}>
+                Remove bookmark
+              </button>
+            </li>
+          </>
         ))}
       </ul>
     </>

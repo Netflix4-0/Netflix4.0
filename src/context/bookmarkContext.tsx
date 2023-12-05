@@ -5,23 +5,46 @@ interface Props {
 }
 
 interface BookmarksContextValue {
-  bookmarks: string[];
-  addBookmark: (bookmark: string) => void;
+  bookmarks: Movie[];
+  addBookmark: (bookmark: Movie) => void;
+  removeBookmark: (bookmark: Movie) => void;
+}
+
+export interface Movie {
+  title: string;
+  year: number;
+  rating: Rating;
+  actors: string[];
+  genre: string;
+  synopsis: string;
+  thumbnail: string;
+  poster?: string;
+  isTrending?: boolean;
+}
+
+export enum Rating {
+  NotRated = 'Not Rated',
+  PG = 'PG',
+  PG13 = 'PG-13',
+  R = 'R',
 }
 
 export const BookmarkContext = createContext<BookmarksContextValue>({
   bookmarks: [],
   addBookmark: () => {},
+  removeBookmark: () => {},
 });
 
 export const BookmarkProvider = ({ children }: Props) => {
-  const [bookmarks, setBookmarks] = useState<string[]>([
-    'my first bookmark',
-    'my second bookmark',
-  ]);
+  const [bookmarks, setBookmarks] = useState<Movie[]>([]);
 
-  const addBookmark = (bookmark: string) => {
+  const addBookmark = (bookmark: Movie) => {
+    if (bookmarks.includes(bookmark)) return;
     setBookmarks([...bookmarks, bookmark]);
+  };
+
+  const removeBookmark = (bookmark: Movie) => {
+    setBookmarks(bookmarks.filter(b => b !== bookmark));
   };
 
   return (
@@ -29,6 +52,7 @@ export const BookmarkProvider = ({ children }: Props) => {
       value={{
         bookmarks,
         addBookmark,
+        removeBookmark,
       }}
     >
       {children}
