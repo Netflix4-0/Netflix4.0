@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import data from "./data/movies.json";
 import './movies.css';
 
@@ -6,10 +6,6 @@ import './movies.css';
 export const Movies = () => {
   const [search, setSearch] = useState("");
   const moviesByGenre = [...new Set(data.flatMap(movie => movie.genre.split(', ')))];
-
-  useEffect(() => {
-      // If you need to perform any actions when the component mounts or data changes, do it here
-  }, [data])
 
   const filteredMovies = search === ''
     ? data
