@@ -46,6 +46,7 @@
   border-radius: 1rem;
   text-align: center;
   margin-bottom: 1rem;
+  font-size: 1rem;
 }
 
 .hero-slide-container h2 {
@@ -64,6 +65,11 @@
   }
   .hero-slide-container p {
     font-size: 1rem;
+  }
+  .is-trending-label {
+    width: 6.2rem;
+    padding: 3px 8px;
+    font-size: 0.8rem;
   }
 }
 
