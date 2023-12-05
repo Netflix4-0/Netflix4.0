@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import './index.css';
+import { CategoryPage } from './routes/CategoryPage';
 import ErrorPage from './routes/ErrorPage';
 import MovieView from './routes/MovieView';
 
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
       { path: '/', element: <h1>Home</h1> },
       {
         path: '/categories',
-        element: <h1>Categories</h1>,
+        element: <CategoryPage />,
         children: [
           { path: 'categories/:categoryId', element: <h1>Category</h1> },
         ],
