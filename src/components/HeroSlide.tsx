@@ -2,40 +2,13 @@ import SwiperCore from 'swiper';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-const slidesData = [
-  {
-    imageUrl: 'https://picsum.photos/200/300',
-    title: 'Slide 1',
-    description: 'Description for Slide 1',
-    button1Text: 'Button 1',
-    button2Text: 'Button 2',
-  },
-  {
-    imageUrl: 'https://picsum.photos/200/300',
-    title: 'Slide 2',
-    description: 'Description for Slide 2',
-    button1Text: 'Button 1',
-    button2Text: 'Button 2',
-  },
-  {
-    imageUrl: 'https://picsum.photos/200/300',
-    title: 'Slide 3',
-    description: 'Description for Slide 3',
-    button1Text: 'Button 1',
-    button2Text: 'Button 2',
-  },
-  {
-    imageUrl: 'https://picsum.photos/200/300',
-    title: 'Slide 4',
-    description: 'Description for Slide 4',
-    button1Text: 'Button 1',
-    button2Text: 'Button 2',
-  },
-];
+import { movies } from '../data';
 
 export const Heroslide = () => {
   SwiperCore.use([Autoplay]);
+
+  const trendingMovies = movies.filter(movie => movie.isTrending);
+
   return (
     <Swiper
       modules={[Autoplay]}
@@ -44,11 +17,11 @@ export const Heroslide = () => {
       slidesPerView={1}
       autoplay={{ delay: 3500 }}
     >
-      {slidesData.map((slide, index) => (
+      {trendingMovies.map((slide, index) => (
         <SwiperSlide key={index}>
           <div
             style={{
-              backgroundImage: `url(${slide.imageUrl})`,
+              backgroundImage: `url(${slide.poster})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               width: '100%',
@@ -60,10 +33,10 @@ export const Heroslide = () => {
             }}
           >
             <h2>{slide.title}</h2>
-            <p>{slide.description}</p>
+            <p>{slide.synopsis}</p>
             <div>
-              <button>{slide.button1Text}</button>
-              <button>{slide.button2Text}</button>
+              <button>Read More</button>
+              <button>Bookmark</button>
             </div>
           </div>
         </SwiperSlide>
