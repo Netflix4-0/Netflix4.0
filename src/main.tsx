@@ -2,7 +2,9 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
+import { BookmarkProvider } from './context/bookmarkContext';
 import './index.css';
+import { Bookmarks } from './routes/Bookmarks';
 import ErrorPage from './routes/ErrorPage';
 import MovieView from './routes/MovieView';
 
@@ -19,7 +21,7 @@ const router = createBrowserRouter([
           { path: 'categories/:categoryId', element: <h1>Category</h1> },
         ],
       },
-      { path: '/bookmarks', element: <h1>Bookmarks</h1> },
+      { path: '/bookmarks', element: <Bookmarks /> },
       { path: '/movie/:id', element: <MovieView /> },
     ],
   },
@@ -29,6 +31,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <BookmarkProvider>
+      <RouterProvider router={router} />
+    </BookmarkProvider>
   </React.StrictMode>
 );
