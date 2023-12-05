@@ -1,9 +1,7 @@
-import Movies from "../Movies";
-
 const MovieView = () => {
   return (
     <>
-      <Movies />
+      <h1>Movie asd as s</h1>
     </>
   );
 };
