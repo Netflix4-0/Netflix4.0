@@ -10,8 +10,7 @@ const Movies = () => {
 
   useEffect(() => {
       setMovies(data)
-      console.log("state:",movies)
-  },[])
+  },[data])
 
     return (
         <div>
