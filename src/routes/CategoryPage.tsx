@@ -27,6 +27,7 @@ export const CategoryPage = () => {
   return (
     <>
       <div>
+        <button onClick={() => setSelectedCategory('')}>All</button>
         {allGenres.map((genre, index) => (
           <button
             key={index}
@@ -38,7 +39,7 @@ export const CategoryPage = () => {
       </div>
       {filteredMovies.map((movie, index) => (
         <div key={index}>
-          <div data-testid="movie">{movie.title}</div>
+          <div data-testid='movie'>{movie.title}</div>
         </div>
       ))}
     </>
