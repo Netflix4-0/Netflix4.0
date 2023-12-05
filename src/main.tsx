@@ -5,6 +5,7 @@ import App from './App';
 import './index.css';
 import { CategoryPage } from './routes/CategoryPage';
 import ErrorPage from './routes/ErrorPage';
+import { HomePage } from './routes/HomePage';
 import MovieView from './routes/MovieView';
 
 const router = createBrowserRouter([
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     children: [
-      { path: '/', element: <h1>Home</h1> },
+      { path: '/', element: <HomePage /> },
       {
         path: '/categories',
         element: <CategoryPage />,
