@@ -3,6 +3,7 @@ import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { movies } from '../data';
+import './HeroSlide.css';
 
 export const Heroslide = () => {
   SwiperCore.use([Autoplay]);
@@ -20,23 +21,23 @@ export const Heroslide = () => {
       {trendingMovies.map((slide, index) => (
         <SwiperSlide key={index}>
           <div
+            className='hero-slide-container'
             style={{
               backgroundImage: `url(${slide.poster})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              width: '100%',
-              height: '80dvh',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
             }}
           >
-            <h2>{slide.title}</h2>
-            <p>{slide.synopsis}</p>
-            <div>
-              <button>Read More</button>
-              <button>Bookmark</button>
+            <div className='hero-slide-content'>
+              <h2>{slide.title}</h2>
+              <p>{slide.synopsis}</p>
+              <div>
+                <button className='hero-slide-read-more'>
+                  <i className='fa-solid fa-play hero-slide-icon'></i>Read More
+                </button>
+                <button className='hero-slide-bookmark'>
+                  <i className='fa-solid fa-bookmark hero-slide-icon'></i>
+                  Bookmark
+                </button>
+              </div>
             </div>
           </div>
         </SwiperSlide>
