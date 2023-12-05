@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import data from "./data/movies.json";
 
 
-const Movies = () => {
+export const Movies = () => {
   const [movies, setMovies] = useState(data)
   const [search, setSearch] = useState<string>("")
 
@@ -37,5 +37,3 @@ const Movies = () => {
     )
 }
 
-
-export default Movies;
