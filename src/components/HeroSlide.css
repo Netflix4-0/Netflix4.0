@@ -32,6 +32,22 @@
   margin-right: 3rem;
 }
 
+.is-trending-label {
+  padding: 5px 10px;
+  background-image: linear-gradient(
+    to right top,
+    #0041be,
+    #005ace,
+    #0073db,
+    #298ae7,
+    #49a1f0
+  );
+  width: 8rem;
+  border-radius: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
 .hero-slide-container h2 {
   font-size: 4rem;
   margin-bottom: 2rem;
@@ -64,11 +80,38 @@
 .hero-slide-bookmark {
   border: 1px solid white;
   background: transparent;
+  background-image: none;
   color: white;
 }
 
+.hero-slide-bookmark:hover {
+  background-image: linear-gradient(
+    to right top,
+    #0041be,
+    #005ace,
+    #0073db,
+    #298ae7,
+    #49a1f0
+  );
+  color: #fff;
+}
+
 .hero-slide-read-more {
-  border: none;
+  border: 1px solid #fff;
+  background-image: none;
+}
+
+.hero-slide-read-more:hover {
+  background-image: linear-gradient(
+    to right top,
+    #0041be,
+    #005ace,
+    #0073db,
+    #298ae7,
+    #49a1f0
+  );
+  border: 1px solid #fff;
+  color: #fff;
 }
 
 .hero-slide-icon {

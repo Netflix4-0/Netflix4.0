@@ -27,6 +27,9 @@ export const Heroslide = () => {
             }}
           >
             <div className='hero-slide-content'>
+              <div aria-label='trending now' className='is-trending-label'>
+                Trending Now
+              </div>
               <h2>{slide.title}</h2>
               <p>{slide.synopsis}</p>
               <div>
