@@ -63,7 +63,7 @@ export const CategoryPage = () => {
           </button>
         ))}
       </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', padding: '20px' }}>
         {filteredMovies.map((movie, index) => (
           <Thumbnail
             data-testid='movie'
