@@ -26,13 +26,10 @@
   width: 100%;
   overflow-y: hidden;
   gap: 1rem;
-
 }
 .movie {
   display: flex;
   flex-direction: column;
-  /* width: 50rem; */
-  /* height: 50rem; */
   gap: 0.5rem;
   margin-bottom: 2rem;
 }
@@ -44,5 +41,3 @@
 .movieTitle {
   height: 2rem;
 }
-
-
