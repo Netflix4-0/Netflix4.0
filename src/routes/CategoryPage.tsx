@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Thumbnail } from '../components';
 import { movies } from '../data';
 
 export const CategoryPage = () => {
@@ -37,11 +38,17 @@ export const CategoryPage = () => {
           </button>
         ))}
       </div>
-      {filteredMovies.map((movie, index) => (
-        <div key={index}>
-          <div data-testid='movie'>{movie.title}</div>
-        </div>
-      ))}
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {filteredMovies.map((movie, index) => (
+          <Thumbnail
+            key={index}
+            thumbnail={movie.thumbnail}
+            title={movie.title}
+            releaseYear={movie.year}
+            rating={movie.rating}
+          />
+        ))}
+      </div>
     </>
   );
 };
