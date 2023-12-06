@@ -1,11 +1,10 @@
-import { Movies } from "../Movies"
-
+import { Movies } from '../components/Movies';
 
 export const HomePage = () => {
   return (
     <>
-    <h1>HomePage</h1>
-<Movies />
+      <h1>HomePage</h1>
+      <Movies />
     </>
-  )
-}
+  );
+};
