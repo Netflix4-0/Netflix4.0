@@ -1,9 +1,9 @@
-import { Heroslide } from '../components/HeroSlide';
+import { HeroSlide } from '../components/HeroSlide';
 
 function Home() {
   return (
     <div>
-      <Heroslide />
+      <HeroSlide />
     </div>
   );
 }

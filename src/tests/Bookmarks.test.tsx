@@ -2,9 +2,13 @@ import '@testing-library/jest-dom';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { describe, expect, test } from 'vitest';
+import { afterEach, describe, expect, test } from 'vitest';
 import { BookmarkProvider } from '../context/bookmarkContext';
 import { Bookmarks } from '../routes/Bookmarks';
+
+afterEach(() => {
+  sessionStorage.clear();
+});
 
 describe('Bookmark related tests:', () => {
   test('User can add a bookmark', async () => {
