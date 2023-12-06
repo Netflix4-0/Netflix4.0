@@ -2,7 +2,7 @@ import SwiperCore from 'swiper';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { movies } from '../data';
+import { movies } from '../../data';
 import './HeroSlide.css';
 
 export const Heroslide = () => {
