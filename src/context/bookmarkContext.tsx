@@ -1,4 +1,5 @@
-import { createContext, useState } from 'react';
+import { createContext } from 'react';
+import { useSessionStorageState } from '../hooks/useSessionStorage';
 import { MovieData } from '../types/types';
 
 interface Props {
@@ -18,7 +19,10 @@ export const BookmarkContext = createContext<BookmarksContextValue>({
 });
 
 export const BookmarkProvider = ({ children }: Props) => {
-  const [bookmarks, setBookmarks] = useState<MovieData[]>([]);
+  const [bookmarks, setBookmarks] = useSessionStorageState<MovieData[]>(
+    [],
+    'bookmarkedMovies'
+  );
 
   const addBookmark = (bookmark: MovieData) => {
     if (bookmarks.includes(bookmark)) return;
