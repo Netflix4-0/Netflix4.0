@@ -41,11 +41,13 @@ export const CategoryPage = () => {
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {filteredMovies.map((movie, index) => (
           <Thumbnail
+            data-testid="movie"
             key={index}
             thumbnail={movie.thumbnail}
             title={movie.title}
             releaseYear={movie.year}
             rating={movie.rating}
+            movieData={movie}
           />
         ))}
       </div>

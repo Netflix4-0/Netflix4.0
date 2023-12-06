@@ -3,13 +3,32 @@
     flex-direction: column;
     justify-content: space-between;
     width: 250px;
-    margin: 15px
+    margin: 15px;
+}
+
+.title {
+    min-height: 50px;
+    padding: 5px;
 }
 
 .subTitle {
     display: flex;
     justify-content: space-between;
-    margin: 5px 0;
+    padding: 5px;
+}
+
+.thumbnail {  
+    display: flex;
+    position: relative;
+    align-items: flex-end;
+}
+
+.fa-bookmark {
+    padding: 10px;
+    top: 5px;
+    right: 0;
+    color: #FA7800;
+    position: absolute;
 }
 
 .thumbnail img {  
