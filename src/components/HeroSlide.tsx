@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { movies } from '../data';
 import './HeroSlide.css';
 
-export const Heroslide = () => {
+export const HeroSlide = () => {
   SwiperCore.use([Autoplay]);
 
   const trendingMovies = movies.filter(movie => movie.isTrending);
