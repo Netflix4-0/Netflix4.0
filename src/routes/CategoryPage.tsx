@@ -27,12 +27,37 @@ export const CategoryPage = () => {
 
   return (
     <>
-      <div>
-        <button onClick={() => setSelectedCategory('')}>All</button>
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '15px',
+          padding: '10px 25px',
+        }}
+      >
+        <button
+          style={{
+            padding: '5px 10px',
+            borderRadius: '5px',
+            border: '1px solid #fff',
+            background: !selectedCategory ? '#fff' : 'transparent',
+            color: !selectedCategory ? '#000' : '#fff',
+          }}
+          onClick={() => setSelectedCategory('')}
+        >
+          All
+        </button>
         {allGenres.map((genre, index) => (
           <button
             key={index}
             onClick={() => handleChangeSelectedCategory(genre)}
+            style={{
+              padding: '5px 10px',
+              borderRadius: '5px',
+              border: '1px solid #fff',
+              background: selectedCategory === genre ? '#fff' : 'transparent',
+              color: selectedCategory === genre ? '#000' : '#fff',
+            }}
           >
             {genre}
           </button>
@@ -41,7 +66,7 @@ export const CategoryPage = () => {
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {filteredMovies.map((movie, index) => (
           <Thumbnail
-            data-testid="movie"
+            data-testid='movie'
             key={index}
             thumbnail={movie.thumbnail}
             title={movie.title}
