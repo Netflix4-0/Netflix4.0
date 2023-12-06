@@ -41,4 +41,5 @@ test('Renders isTrending label', () => {
   setupHeroSlide();
   const isTrendingLabel = screen.getAllByText('Trending Now');
   expect(isTrendingLabel.length).toBe(7);
+
 });
