@@ -1,39 +1,79 @@
-import { useEffect, useState } from "react";
-import data from "./data/movies.json";
-
+import { useState } from 'react';
+import data from './data/movies.json';
+import './movies.css';
 
 export const Movies = () => {
-  const [movies, setMovies] = useState(data)
-  const [search, setSearch] = useState<string>("")
+  const [search, setSearch] = useState('');
+  const moviesByGenre = [
+    ...new Set(data.flatMap(movie => movie.genre.split(', '))),
+  ];
 
+  const filteredMovies =
+    search === ''
+      ? data
+      : data.filter(
+          m =>
+            m.title.toLowerCase().includes(search.toLowerCase()) ||
+            m.actors.some(actor =>
+              actor.toLowerCase().includes(search.toLowerCase())
+            )
+        );
 
-
-  useEffect(() => {
-      setMovies(data)
-  },[data])
-
-    return (
-        <div>
-          <input type="text"
+  return (
+    <div>
+      <div className='searchBox'>
+        <h4>Search for your favorites</h4>
+        <input
+          className='searchInput'
+          type='text'
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search for a movie"
-          />
+          onChange={e => setSearch(e.target.value)}
+          placeholder='Search for a movie'
+        />
+      </div>
 
-{search === '' ? 
-        movies.map((m, index) => (
-          <div key={index}>{m.title}</div>
-        )) 
-        : 
-        movies.filter(m => 
-          // this searches for the title of the movies
-          m.title.toLowerCase().includes(search.toLowerCase()) ||
-          // this searches for the actors of the movies, if the search is found "some" will return true & the movie will be rendered
-          m.actors.some(actor => actor.toLowerCase().includes(search.toLowerCase()))
-        ).map((m, index) => (
-          <div key={index}>{m.title}</div>
-        ))}
-        </div>
-    )
-}
-
+      <div className='movieSection'>
+        {search === ''
+          ? moviesByGenre.map((genre, index) => (
+              <div key={index}>
+                <h2>{genre}</h2>
+                <div className='allMoviesInGenre'>
+                  {filteredMovies
+                    .filter(movie => movie.genre.includes(genre))
+                    .map((m, index) => (
+                      <div className='movie' key={index}>
+                        <p className='movieTitle'>{m.title}</p>
+                        <img
+                          className='moviePicture'
+                          src={m.thumbnail || 'vite.svg'}
+                          onError={event => {
+                            const target = event.target as HTMLImageElement;
+                            target.src =
+                              'https://github.com/Netflix4-0/Netflix4.0/assets/117076586/0628211e-81a5-482f-84c9-b4cf936ef61b';
+                          }}
+                          alt='movie'
+                        />
+                      </div>
+                    ))}
+                </div>
+              </div>
+            ))
+          : filteredMovies.map((m, index) => (
+              <div key={index} className='movie'>
+                <div className='movieTitle'>{m.title}</div>
+                <img
+                  className='moviePicture'
+                  src={m.thumbnail || 'vite.svg'}
+                  onError={event => {
+                    const target = event.target as HTMLImageElement;
+                    target.src =
+                      'https://github.com/Netflix4-0/Netflix4.0/assets/117076586/0628211e-81a5-482f-84c9-b4cf936ef61b';
+                  }}
+                  alt='movie'
+                />
+              </div>
+            ))}
+      </div>
+    </div>
+  );
+};

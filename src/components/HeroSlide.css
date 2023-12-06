@@ -1,0 +1,126 @@
+.hero-slide-container {
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  color: #fff;
+}
+
+.hero-slide-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.hero-slide-container > * {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-slide-content {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.is-trending-label {
+  padding: 5px 10px;
+  background-image: linear-gradient(
+    to right top,
+    #0041be,
+    #005ace,
+    #0073db,
+    #298ae7,
+    #49a1f0
+  );
+  width: 8rem;
+  border-radius: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.hero-slide-container h2 {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+
+.hero-slide-container p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .hero-slide-container h2 {
+    font-size: 2rem;
+  }
+  .hero-slide-container p {
+    font-size: 1rem;
+  }
+  .is-trending-label {
+    width: 6.2rem;
+    padding: 3px 8px;
+    font-size: 0.8rem;
+  }
+}
+
+.hero-slide-container button {
+  width: 9rem;
+  padding: 15px 0px;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.hero-slide-bookmark {
+  border: 1px solid white;
+  background: transparent;
+  background-image: none;
+  color: white;
+}
+
+.hero-slide-bookmark:hover {
+  background-image: linear-gradient(
+    to right top,
+    #0041be,
+    #005ace,
+    #0073db,
+    #298ae7,
+    #49a1f0
+  );
+  color: #fff;
+}
+
+.hero-slide-read-more {
+  border: 1px solid #fff;
+  background-image: none;
+}
+
+.hero-slide-read-more:hover {
+  background-image: linear-gradient(
+    to right top,
+    #0041be,
+    #005ace,
+    #0073db,
+    #298ae7,
+    #49a1f0
+  );
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.hero-slide-icon {
+  margin-right: 10px;
+}
