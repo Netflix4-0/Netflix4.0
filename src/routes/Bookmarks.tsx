@@ -1,4 +1,4 @@
-import { Fragment, useContext } from 'react';
+import { Fragment, useContext, useEffect, useState } from 'react';
 import { BookmarkContext } from '../context/bookmarkContext';
 import { movies } from '../data/index.ts';
 import { MovieData } from '../types/types';
@@ -6,6 +6,14 @@ import { MovieData } from '../types/types';
 export const Bookmarks = () => {
   const { bookmarks, addBookmark, removeBookmark } =
     useContext(BookmarkContext);
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (bookmarks) {
+      setLoading(false);
+    }
+  }, [bookmarks]);
 
   movies as MovieData[];
 
@@ -19,7 +27,11 @@ export const Bookmarks = () => {
             {movie.title}
             <button
               onClick={() => addBookmark(movie)}
-              disabled={bookmarks.includes(movie)}
+              disabled={
+                loading
+                  ? false
+                  : bookmarks.some(bookmark => bookmark.title === movie.title)
+              }
             >
               {' '}
               Add bookmark
