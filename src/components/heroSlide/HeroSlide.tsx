@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { movies } from '../../data';
 import './HeroSlide.css';
 
-export const Heroslide = () => {
+export const HeroSlide = () => {
   SwiperCore.use([Autoplay]);
 
   const trendingMovies = movies.filter(movie => movie.isTrending);
@@ -27,7 +27,7 @@ export const Heroslide = () => {
             }}
           >
             <div className='hero-slide-content'>
-              <div aria-label='trending now' className='is-trending-label'>
+              <div aria-label='trending' className='is-trending-label'>
                 Trending Now
               </div>
               <h2>{slide.title}</h2>
