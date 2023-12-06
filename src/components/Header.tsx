@@ -3,7 +3,7 @@ import './Header.css';
 
 export const Header = () => {
   return (
-    <div className='header'>
+    <header>
       <Link className='' to={'/'}>
         <img
           className='headerLogo'
@@ -17,6 +17,6 @@ export const Header = () => {
       <Link className='link' to={'/'}>
         Bookmarks
       </Link>
-    </div>
+    </header>
   );
 };

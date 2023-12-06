@@ -3,7 +3,7 @@ import './Footer.css';
 
 export const Footer = () => {
   return (
-    <div className='footer'>
+    <footer>
       <Link className='footerLogoContainer' to={'/'}>
         <img
           className='footerLogo'
@@ -11,61 +11,61 @@ export const Footer = () => {
           alt='logo'
         />
       </Link>
-      <div className='footerLinksContainer'></div>
-      <div className='footerLinks'>
-        <h4>We Offer</h4>
-        <Link className='link' to={''}>
-          Top Notch Streaming
-        </Link>
-        <Link className='link' to={''}>
-          4k Quality
-        </Link>
-      </div>
-
-      <div className='footerLinks'>
-        <h4>Contact</h4>
-        <Link className='link' to={''}>
-          Head Office
-        </Link>
-        <Link className='link' to={''}>
-          Sales Offices
-        </Link>
-        <Link className='link' to={''}>
-          Support
-        </Link>
-      </div>
-      <div className='footerLinks'>
-        <h4>Terms of use</h4>
-        <Link className='link' to={''}>
-          Agreement
-        </Link>
-        <Link className='link' to={''}>
-          Devices
-        </Link>
-      </div>
-      <div className='footerLinks'>
-        <h4>Privacy</h4>
-        <Link className='link' to={''}>
-          Your data
-        </Link>
-        <Link className='link' to={''}>
-          Cookies
-        </Link>
-        <Link className='link' to={''}>
-          Third party
-        </Link>
-      </div>
-      <div className='footerLinks'>
-        <h4>FAQ</h4>
-        <Link className='link' to={''}>
-          Kids mode
-        </Link>
-        <Link className='link' to={''}>
-          Payment
-        </Link>
-        <Link className='link' to={''}>
-          Countries
-        </Link>
+      <div className='linksContainer'>
+        <div className='footerLinks'>
+          <h4>We Offer</h4>
+          <Link className='link' to={''}>
+            Top Notch Streaming
+          </Link>
+          <Link className='link' to={''}>
+            4k Quality
+          </Link>
+        </div>
+        <div className='footerLinks'>
+          <h4>Contact</h4>
+          <Link className='link' to={''}>
+            Head Office
+          </Link>
+          <Link className='link' to={''}>
+            Sales Offices
+          </Link>
+          <Link className='link' to={''}>
+            Support
+          </Link>
+        </div>
+        <div className='footerLinks'>
+          <h4>Terms of use</h4>
+          <Link className='link' to={''}>
+            Agreement
+          </Link>
+          <Link className='link' to={''}>
+            Devices
+          </Link>
+        </div>
+        <div className='footerLinks'>
+          <h4>Privacy</h4>
+          <Link className='link' to={''}>
+            Your data
+          </Link>
+          <Link className='link' to={''}>
+            Cookies
+          </Link>
+          <Link className='link' to={''}>
+            Third party
+          </Link>
+        </div>
+        <div className='footerLinks'>
+          <h4>FAQ</h4>
+          <Link className='link' to={''}>
+            Kids mode
+          </Link>
+          <Link className='link' to={''}>
+            Payment
+          </Link>
+          <Link className='link' to={''}>
+            Countries
+          </Link>
+        </div>
       </div>
 
       <div className='socialMediaContainer'>
@@ -74,6 +74,6 @@ export const Footer = () => {
         <i className='fa-brands fa-facebook-f footerLogo'></i>
         <i className='fa-brands fa-instagram footerLogo'></i>
       </div>
-    </div>
+    </footer>
   );
 };
