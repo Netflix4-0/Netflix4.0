@@ -61,7 +61,16 @@ export const Movies = () => {
           : filteredMovies.map((m, index) => (
               <div key={index} className='movie'>
                 <div className='movieTitle'>{m.title}</div>
-                <img className='moviePicture' src={m.poster} alt='movie' />
+                <img
+                  className='moviePicture'
+                  src={m.thumbnail || 'vite.svg'}
+                  onError={event => {
+                    const target = event.target as HTMLImageElement;
+                    target.src =
+                      'https://github.com/Netflix4-0/Netflix4.0/assets/117076586/0628211e-81a5-482f-84c9-b4cf936ef61b';
+                  }}
+                  alt='movie'
+                />
               </div>
             ))}
       </div>
