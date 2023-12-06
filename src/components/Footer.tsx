@@ -14,51 +14,65 @@ export const Footer = () => {
       <div className='footerLinksContainer'></div>
       <div className='footerLinks'>
         <h4>We Offer</h4>
-        <p>Top Notch Streaming</p>
-        <p>4k Quality</p>
+        <Link className='link' to={''}>
+          Top Notch Streaming
+        </Link>
+        <Link className='link' to={''}>
+          4k Quality
+        </Link>
       </div>
 
       <div className='footerLinks'>
         <h4>Contact</h4>
-        <p>Head Office</p>
-        <p>Sales Offices</p>
-        <p>Support</p>
+        <Link className='link' to={''}>
+          Head Office
+        </Link>
+        <Link className='link' to={''}>
+          Sales Offices
+        </Link>
+        <Link className='link' to={''}>
+          Support
+        </Link>
       </div>
       <div className='footerLinks'>
         <h4>Terms of use</h4>
-        <p>Agreement</p>
-        <p>Devices</p>
+        <Link className='link' to={''}>
+          Agreement
+        </Link>
+        <Link className='link' to={''}>
+          Devices
+        </Link>
       </div>
       <div className='footerLinks'>
         <h4>Privacy</h4>
-        <p>Your data</p>
-        <p>Cookies</p>
-        <p>Third party</p>
+        <Link className='link' to={''}>
+          Your data
+        </Link>
+        <Link className='link' to={''}>
+          Cookies
+        </Link>
+        <Link className='link' to={''}>
+          Third party
+        </Link>
       </div>
       <div className='footerLinks'>
         <h4>FAQ</h4>
-        <p>Kids mode</p>
-        <p>Payment</p>
-        <p>Countries</p>
+        <Link className='link' to={''}>
+          Kids mode
+        </Link>
+        <Link className='link' to={''}>
+          Payment
+        </Link>
+        <Link className='link' to={''}>
+          Countries
+        </Link>
       </div>
 
       <div className='socialMediaContainer'>
-        <img
-          src='https://github.com/Netflix4-0/Netflix4.0/assets/117076586/545b062a-0848-44d5-9164-c828f9928037'
-          alt='youtube logo'
-        />
-        <img
-          src='https://github.com/Netflix4-0/Netflix4.0/assets/117076586/a46cca47-8fe9-4c34-af0c-80bbacf4e943'
-          alt='X logo'
-        />
-        <img
-          src='https://github.com/Netflix4-0/Netflix4.0/assets/117076586/f743365d-b16f-4459-ae85-093f889f5a57'
-          alt='Facebook Logo'
-        />
-        <img
-          src='https://github.com/Netflix4-0/Netflix4.0/assets/117076586/a6f681cb-06d8-4fe8-b5d2-8c5c119f42a1'
-          alt='Instagram Logo'
-        />
+        <i className='fa-brands fa-youtube footerLogo'></i>
+        <i className='fa-brands fa-x-twitter footerLogo'></i>
+        <i className='fa-brands fa-facebook-f footerLogo'></i>
+        <i className='fa-brands fa-instagram footerLogo'></i>
       </div>
     </div>
   );

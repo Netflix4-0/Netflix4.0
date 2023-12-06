@@ -29,11 +29,16 @@
 .socialMediaContainer {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   transition: 0.15s;
 }
-.footerlogo:hover {
-  transform: scale(1.05);
+.footerLogo {
+  font-size: 2rem;
+  transition: 0.15s;
+  cursor: pointer;
+}
+.footerLogo:hover {
+  transform: scale(1.1);
 }
 
 @media (max-width: 1080px) {
@@ -47,6 +52,7 @@
     height: auto;
     align-items: center;
     justify-content: center;
+    margin-bottom: 1rem;
   }
   .footerLinks {
     font-size: 12px;
