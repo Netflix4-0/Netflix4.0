@@ -1,0 +1,17 @@
+.thumbnailContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 250px;
+    margin: 15px
+}
+
+.subTitle {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.thumbnail img {  
+    width: 250px;
+}
