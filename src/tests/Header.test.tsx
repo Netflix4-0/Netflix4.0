@@ -10,7 +10,7 @@ describe('Header', () => {
         <Header />
       </BrowserRouter>
     );
-    const header = await waitFor(() => screen.getByRole('banner'));
+    const header = await waitFor(() => screen.getByRole('header'));
     expect(header).toBeInTheDocument();
   });
 
@@ -20,7 +20,7 @@ describe('Header', () => {
         <Header />
       </BrowserRouter>
     );
-    const header = await waitFor(() => screen.getByRole('banner'));
+    const header = await waitFor(() => screen.getByRole('header'));
     const categoriesLink = within(header).getByText('Categories');
     expect(categoriesLink).toBeInTheDocument();
 
