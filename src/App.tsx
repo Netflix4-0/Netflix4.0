@@ -1,15 +1,15 @@
 import { Outlet } from 'react-router-dom';
 import './App.css';
-import Header from './routes/Header';
-import Home from './routes/Home';
+import { Footer } from './components/Footer';
+import { Header } from './components/Header';
 
 function App() {
   return (
-    <>
+    <div>
       <Header />
-      <Home />
       <Outlet />
-    </>
+      <Footer />
+    </div>
   );
 }
 

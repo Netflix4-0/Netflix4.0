@@ -1,10 +1,11 @@
+import { Heroslide } from '../components/HeroSlide';
 import { Movies } from '../components/Movies';
 
 export const HomePage = () => {
   return (
-    <>
-      <h1>HomePage</h1>
+    <div>
+      <Heroslide />
       <Movies />
-    </>
+    </div>
   );
 };
