@@ -2,16 +2,17 @@ import './MovieView.css';
 
 export const MovieView = () => {
   const movie = {
-    title: 'The Lord of the Rings: The Two Towers',
-    year: 2002,
+    title: 'The Lord of the Rings: The Return of the King',
+    year: 2003,
     rating: 'PG-13',
-    actors: ['Elijah Wood', 'Ian McKellen', 'Viggo Mortensen'],
+    actors: ['Elijah Wood', 'Viggo Mortensen', 'Ian McKellen'],
     genre: 'Action, Adventure, Drama',
     synopsis:
-      "While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.",
+      "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
     thumbnail:
-      'https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX380_CR0,14,380,562_.jpg',
-    poster: 'https://wallpapercave.com/wp/wp3871647.jpg',
+      'https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,675,1000_AL_.jpg',
+    isTrending: true,
+    poster: 'https://wallpapercave.com/wp/wp4119586.jpg',
   };
 
   const genres = movie.genre.split(', ');
@@ -26,6 +27,9 @@ export const MovieView = () => {
           }}
         />
         <div className='movie-details'>
+          {movie.isTrending ? (
+            <div className='trending-text'>Trending Now</div>
+          ) : null}
           <h2>{movie.title}</h2>
           <div className='genres-list'>
             <div className='genre-container'>
@@ -36,9 +40,11 @@ export const MovieView = () => {
               ))}
             </div>
           </div>
-          <p>Released in: {movie.year}</p>
-          <p>Rating: {movie.rating}</p>
-          <p>{movie.synopsis}</p>
+          <div className='movie-info'>
+            <p>Released in: {movie.year}</p>
+            <p>Rating: {movie.rating}</p>
+          </div>
+          <p className='movie-synopsis'>{movie.synopsis}</p>
           <div className='actors-list'>
             <h3>Actors:</h3>
             <ul>
@@ -47,9 +53,9 @@ export const MovieView = () => {
               ))}
             </ul>
           </div>
-          <div className='movie-thumbnail'>
-            <img src={movie.thumbnail} alt={movie.title} />
-          </div>
+        </div>
+        <div className='movie-thumbnail'>
+          <img src={movie.thumbnail} alt={movie.title} />
         </div>
       </div>
     </>
