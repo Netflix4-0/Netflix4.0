@@ -7,7 +7,33 @@ import { BookmarkProvider } from '../context/bookmarkContext';
 import { Bookmarks } from '../routes/Bookmarks';
 
 describe('Bookmark related tests:', () => {
-  test('User can add and remove a bookmark', async () => {
+  test('User can add a bookmark', async () => {
+    render(
+      <BookmarkProvider>
+        <Bookmarks />
+      </BookmarkProvider>
+    );
+
+    const user = userEvent.setup();
+
+    // Finds the Element which cointains the text 'Inception'
+    // and the parent element it's in
+    const inceptionElement = await screen.findByText('Inception');
+    const parentElement = inceptionElement.closest('p');
+
+    if (!parentElement) {
+      throw new Error('Parent element not found');
+    }
+
+    // Find the "Add bookmark" button within the parentElement
+    const addBookmarkButton = within(parentElement).getByText('Add bookmark');
+
+    await user.click(addBookmarkButton);
+
+    // Check if the button is disabled after clicking
+    expect(addBookmarkButton).toBeDisabled();
+  });
+  test('User can view added bookmarks', async () => {
     render(
       <BookmarkProvider>
         <Bookmarks />
@@ -34,8 +60,32 @@ describe('Bookmark related tests:', () => {
 
     await user.click(addBookmarkButton);
 
-    // Check if the button is disabled after clicking
-    expect(addBookmarkButton).toBeDisabled();
+    // Checks theres now two elements with the text 'Inception'
+    let inceptionElements = await screen.findAllByText('Inception');
+    expect(inceptionElements.length).toBe(2);
+  });
+  test('User can remove a bookmark', async () => {
+    render(
+      <BookmarkProvider>
+        <Bookmarks />
+      </BookmarkProvider>
+    );
+
+    const user = userEvent.setup();
+
+    // Finds the Element which cointains the text 'Inception'
+    // and the parent element it's in
+    const inceptionElement = await screen.findByText('Inception');
+    const parentElement = inceptionElement.closest('p');
+
+    if (!parentElement) {
+      throw new Error('Parent element not found');
+    }
+
+    // Find the "Add bookmark" button within the parentElement
+    const addBookmarkButton = within(parentElement).getByText('Add bookmark');
+
+    await user.click(addBookmarkButton);
 
     // Checks theres now two elements with the text 'Inception'
     let inceptionElements = await screen.findAllByText('Inception');
