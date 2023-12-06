@@ -14,7 +14,7 @@ export const Header = () => {
       <Link className='link' to={'/categories'}>
         Categories
       </Link>
-      <Link className='link' to={'/'}>
+      <Link className='link' to={'/bookmarks'}>
         Bookmarks
       </Link>
     </header>
