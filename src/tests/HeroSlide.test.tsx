@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { expect, test } from 'vitest';
-import { HeroSlide } from '../components/HeroSlide';
+import { HeroSlide } from '../components';
 
 const setupHeroSlide = () => {
   render(<HeroSlide />);
@@ -41,5 +41,4 @@ test('Renders isTrending label', () => {
   setupHeroSlide();
   const isTrendingLabel = screen.getAllByText('Trending Now');
   expect(isTrendingLabel.length).toBe(7);
-
 });
