@@ -33,7 +33,7 @@ describe('Footer', () => {
     );
     const footer = await waitFor(() => screen.getByRole('footer'));
     const socialLinks = within(footer).getAllByTestId('social-link');
-    expect(socialLinks).toHaveLength(3);
+    expect(socialLinks).toHaveLength(4);
   });
 
   it('should exist a logo in the footer', async () => {
