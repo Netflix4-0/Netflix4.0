@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import data from '../data/movies.json';
+import data from '../../data/movies.json';
 import './movies.css';
 
 export const Movies = () => {
