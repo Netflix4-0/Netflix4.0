@@ -1,19 +1,16 @@
+import { useParams } from 'react-router-dom';
+import { movies } from '../data';
+import ErrorPage from './ErrorPage';
 import './MovieView.css';
 
 export const MovieView = () => {
-  const movie = {
-    title: 'The Lord of the Rings: The Return of the King',
-    year: 2003,
-    rating: 'PG-13',
-    actors: ['Elijah Wood', 'Viggo Mortensen', 'Ian McKellen'],
-    genre: 'Action, Adventure, Drama',
-    synopsis:
-      "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
-    thumbnail:
-      'https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,675,1000_AL_.jpg',
-    isTrending: true,
-    poster: 'https://wallpapercave.com/wp/wp4119586.jpg',
-  };
+  const params = useParams();
+
+  const movie = movies.find(movie => movie.title === params.id);
+
+  if (!movie) {
+    return <ErrorPage />;
+  }
 
   const genres = movie.genre.split(', ');
 
@@ -55,7 +52,15 @@ export const MovieView = () => {
           </div>
         </div>
         <div className='movie-thumbnail'>
-          <img src={movie.thumbnail} alt={movie.title} />
+          <img
+            src={movie.thumbnail}
+            alt={movie.title}
+            onError={event => {
+              const target = event.target as HTMLImageElement;
+              target.src =
+                'https://github.com/Netflix4-0/Netflix4.0/assets/117076586/0628211e-81a5-482f-84c9-b4cf936ef61b';
+            }}
+          />
         </div>
       </div>
     </>

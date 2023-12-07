@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import SwiperCore from 'swiper';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
@@ -33,9 +34,13 @@ export const HeroSlide = () => {
               <h2>{slide.title}</h2>
               <p>{slide.synopsis}</p>
               <div>
-                <button className='hero-slide-read-more'>
-                  <i className='fa-solid fa-play hero-slide-icon'></i>Read More
-                </button>
+                <NavLink to={`/movie/${slide.title}`}>
+                  <button className='hero-slide-read-more'>
+                    <i className='fa-solid fa-play hero-slide-icon'></i>Read
+                    More
+                  </button>
+                </NavLink>
+
                 <button className='hero-slide-bookmark'>
                   <i className='fa-solid fa-bookmark hero-slide-icon'></i>
                   Bookmark
