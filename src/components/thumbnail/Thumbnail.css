@@ -23,7 +23,7 @@
     align-items: flex-end;
 }
 
-.fa-bookmark {
+.thumbnailContainer .fa-bookmark {
     padding: 10px;
     top: 5px;
     right: 0;
