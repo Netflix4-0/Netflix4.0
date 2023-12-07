@@ -1,9 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import { expect, test } from 'vitest';
 import { HeroSlide } from '../components';
+import { MemoryRouter } from 'react-router-dom';
 
 const setupHeroSlide = () => {
-  render(<HeroSlide />);
+  render(
+    <MemoryRouter>
+      <HeroSlide />
+    </MemoryRouter>
+  );
 };
 
 test('Renders trending movie titles', () => {
