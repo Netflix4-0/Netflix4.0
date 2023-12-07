@@ -3,7 +3,7 @@ import './Footer.css';
 
 export const Footer = () => {
   return (
-    <footer>
+    <footer role='footer'>
       <Link className='footerLogoContainer' to={'/'}>
         <img
           className='footerLogo'
@@ -69,10 +69,22 @@ export const Footer = () => {
       </div>
 
       <div className='socialMediaContainer'>
-        <i className='fa-brands fa-youtube footerLogo'></i>
-        <i className='fa-brands fa-x-twitter footerLogo'></i>
-        <i className='fa-brands fa-facebook-f footerLogo'></i>
-        <i className='fa-brands fa-instagram footerLogo'></i>
+        <i
+          data-testid='social-link'
+          className='fa-brands fa-youtube footerLogo'
+        ></i>
+        <i
+          data-testid='social-link'
+          className='fa-brands fa-x-twitter footerLogo'
+        ></i>
+        <i
+          data-testid='social-link'
+          className='fa-brands fa-facebook-f footerLogo'
+        ></i>
+        <i
+          data-testid='social-link'
+          className='fa-brands fa-instagram footerLogo'
+        ></i>
       </div>
     </footer>
   );

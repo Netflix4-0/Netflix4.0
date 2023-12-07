@@ -3,7 +3,7 @@ import './Header.css';
 
 export const Header = () => {
   return (
-    <header>
+    <header role='header'>
       <Link className='' to={'/'}>
         <img
           className='headerLogo'
