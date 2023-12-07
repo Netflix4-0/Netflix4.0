@@ -1,0 +1,129 @@
+.movie-view-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding: 0rem 1.5rem 0rem 1.5rem;
+}
+
+.movie-view-container h2 {
+  font-size: 4rem;
+}
+
+.movie-synopsis {
+  font-size: 1.3rem;
+  margin: 2rem 0rem 2rem 0rem;
+}
+
+.movie-info {
+  font-size: 1.1rem;
+  line-height: 1.7rem;
+}
+
+@media screen and (max-width: 900px) {
+  .movie-view-container h2 {
+    font-size: 2rem;
+  }
+  .movie-view-container p {
+    font-size: 1rem;
+  }
+  .trending-text {
+    width: 6.2rem;
+    padding: 3px 8px;
+    font-size: 0.8rem;
+    margin-top: 1.5rem;
+  }
+  .movie-view-container {
+    flex-wrap: wrap;
+  }
+
+  .movie-thumbnail img {
+    margin-top: 1rem;
+    max-height: 30rem;
+  }
+}
+
+.movie-poster {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center center;
+  z-index: 1;
+}
+
+.movie-poster::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.movie-details {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-right: 15%;
+}
+
+.movie-thumbnail {
+  position: relative;
+  z-index: 2;
+}
+
+.movie-thumbnail img {
+  height: 35rem;
+  border-radius: 0.3rem;
+}
+
+.genre-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.actors-list h3 {
+  margin-bottom: 0.8rem;
+}
+
+.actors-list ul {
+  list-style-type: none;
+  line-height: 1.4rem;
+}
+
+.genre-item {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0.4rem 0.6rem;
+  margin-right: 0.5rem;
+  border-radius: 1.25rem;
+}
+
+.trending-text {
+  padding: 5px 10px;
+  background-image: linear-gradient(
+    to right top,
+    #0041be,
+    #005ace,
+    #0073db,
+    #298ae7,
+    #49a1f0
+  );
+  width: 8rem;
+  border-radius: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}

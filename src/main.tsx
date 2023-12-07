@@ -8,7 +8,7 @@ import { Bookmarks } from './routes/Bookmarks';
 import { CategoryPage } from './routes/CategoryPage';
 import ErrorPage from './routes/ErrorPage';
 import { HomePage } from './routes/HomePage';
-import MovieView from './routes/MovieView';
+import { MovieView } from './routes/MovieView';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +16,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { path: '/', element: <HomePage /> },
+      { path: '/movieview', element: <MovieView /> },
       {
         path: '/categories',
         element: <CategoryPage />,
