@@ -1,4 +1,4 @@
-import { HeroSlide } from '../components/HeroSlide';
+import { HeroSlide } from '../components';
 
 function Home() {
   return (
@@ -9,4 +9,3 @@ function Home() {
 }
 
 export default Home;
-
