@@ -27,9 +27,9 @@ export const MovieView = () => {
           }}
         />
         <div className='movie-details'>
-          {movie.isTrending ? (
+          {movie.isTrending && (
             <div className='trending-text'>Trending Now</div>
-          ) : null}
+          )}
           <h2>{movie.title}</h2>
           <div className='genres-list'>
             <div className='genre-container'>
