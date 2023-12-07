@@ -21,10 +21,14 @@ describe('Header', () => {
       </BrowserRouter>
     );
     const header = await waitFor(() => screen.getByRole('header'));
-    const categoriesLink = within(header).getByText('Categories');
+    const categoriesLink = within(header).getByRole('link', {
+      name: 'Categories',
+    });
     expect(categoriesLink).toBeInTheDocument();
 
-    const bookmarksLink = within(header).getByText('Bookmarks');
+    const bookmarksLink = within(header).getByRole('link', {
+      name: 'Bookmarks',
+    });
     expect(bookmarksLink).toBeInTheDocument();
   });
 
@@ -35,7 +39,7 @@ describe('Header', () => {
       </BrowserRouter>
     );
     const header = await waitFor(() => screen.getByRole('header'));
-    const logo = within(header).getByRole('img');
+    const logo = within(header).getByAltText('logo');
     expect(logo).toBeInTheDocument();
   });
 });

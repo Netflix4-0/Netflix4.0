@@ -22,7 +22,7 @@ describe('Footer', () => {
     );
     const footer = await waitFor(() => screen.getByRole('footer'));
     const links = within(footer).getAllByRole('link');
-    expect(links[0]).toBeInTheDocument();
+    expect(links[3]).toBeInTheDocument();
   });
 
   it('should exist links to our social channels in the footer', async () => {
@@ -33,7 +33,7 @@ describe('Footer', () => {
     );
     const footer = await waitFor(() => screen.getByRole('footer'));
     const socialLinks = within(footer).getAllByTestId('social-link');
-    expect(socialLinks[0]).toBeInTheDocument();
+    expect(socialLinks).toHaveLength(3);
   });
 
   it('should exist a logo in the footer', async () => {
@@ -43,7 +43,7 @@ describe('Footer', () => {
       </BrowserRouter>
     );
     const footer = await waitFor(() => screen.getByRole('footer'));
-    const logo = within(footer).getByRole('img');
+    const logo = within(footer).getByAltText('logo');
     expect(logo).toBeInTheDocument();
   });
 });
