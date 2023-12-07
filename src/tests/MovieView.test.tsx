@@ -47,3 +47,39 @@ test('renders synopsis in MovieView with a specific movie', () => {
     screen.getByText(movie.synopsis, { selector: 'p' })
   ).toBeInTheDocument();
 });
+
+test('renders isTrending in MovieView when a movie is trending', () => {
+  const movieTitleToRender = 'Fight Club';
+
+  setupMovieView(movieTitleToRender);
+
+  expect(
+    screen.getByText('Trending Now', { selector: 'div' })
+  ).toBeInTheDocument();
+});
+
+test('renders Rating in MovieView for a specific movie', () => {
+  const movieTitleToRender = 'The Godfather';
+
+  const { movie } = setupMovieView(movieTitleToRender);
+
+  expect(
+    screen.getByText(`Rating: ${movie.rating}`, { selector: 'p' })
+  ).toBeInTheDocument();
+});
+
+test('renders "Released in: year" for a specific movie', () => {
+  const movieTitleToRender = 'Fight Club';
+
+  const { movie } = setupMovieView(movieTitleToRender);
+
+  expect(screen.getByText(`Released in: ${movie.year}`)).toBeInTheDocument();
+});
+
+test('renders thumbnail for a specific movie', () => {
+  const movieTitleToRender = 'Casablanca';
+
+  const { movie } = setupMovieView(movieTitleToRender);
+
+  expect(screen.getByAltText(movie.title)).toBeInTheDocument();
+});
