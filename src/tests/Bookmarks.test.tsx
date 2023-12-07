@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 
 import { afterEach, describe, expect, test } from 'vitest';
 import { BookmarkProvider } from '../context/bookmarkContext';
+import movieData from '../data/movies.json';
 import { Bookmarks } from '../routes/Bookmarks';
 
 afterEach(() => {
@@ -110,5 +111,73 @@ describe('Bookmark related tests:', () => {
     // Now there's only one element with the text 'Inception'
     inceptionElements = await screen.findAllByText('Inception');
     expect(inceptionElements.length).toBe(1);
+  });
+
+  test('Bookmarks persist in session storage', async () => {
+    // Mock sessionStorage
+    const sessionStorageMock = (function () {
+      let store: { [key: string]: string } = {};
+      return {
+        getItem(key: string) {
+          const storedValue = store[key];
+          return storedValue ? JSON.parse(storedValue) : null;
+        },
+        setItem(key: string, value: any) {
+          store[key] = JSON.stringify(value);
+        },
+        clear() {
+          store = {};
+        },
+      };
+    })();
+    Object.defineProperty(window, 'sessionStorage', {
+      value: sessionStorageMock,
+    });
+
+    render(
+      <BookmarkProvider>
+        <Bookmarks />
+      </BookmarkProvider>
+    );
+
+    const user = userEvent.setup();
+
+    // Checks that the session storage is an empty array at the start
+    let sessionBookmarks = JSON.parse(
+      sessionStorage.getItem('bookmarkedMovies') || '[]'
+    );
+    expect(sessionBookmarks).toEqual([]);
+
+    const firstMovieElement = await screen.findByText(
+      'The Shawshank Redemption'
+    );
+    const parentElement = firstMovieElement.closest('p');
+
+    if (!parentElement) {
+      throw new Error('Parent element not found');
+    }
+
+    const addBookmarkButton = within(parentElement).getByText('Add bookmark');
+    await user.click(addBookmarkButton);
+
+    // Gets the first movie from our dataset, which should be The Shawshank Redemption
+    const movie = movieData[0];
+
+    // Check that the bookmark is in session storage
+    sessionBookmarks = JSON.parse(
+      sessionStorage.getItem('bookmarkedMovies') || '[]'
+    );
+    expect(sessionBookmarks).toContainEqual(movie);
+
+    const removeBookmarkButton = await screen.findByRole('button', {
+      name: 'Remove bookmark',
+    });
+    await user.click(removeBookmarkButton);
+
+    // Check that the bookmark is not in session storage anymore
+    sessionBookmarks = JSON.parse(
+      sessionStorage.getItem('bookmarkedMovies') || '[]'
+    );
+    expect(sessionBookmarks).toEqual([]);
   });
 });
