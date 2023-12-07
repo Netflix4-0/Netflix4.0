@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Thumbnail } from '../components';
 import { movies } from '../data';
 
 export const CategoryPage = () => {
@@ -26,22 +27,54 @@ export const CategoryPage = () => {
 
   return (
     <>
-      <div>
-        <button onClick={() => setSelectedCategory('')}>All</button>
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '15px',
+          padding: '10px 25px',
+        }}
+      >
+        <button
+          style={{
+            padding: '5px 10px',
+            borderRadius: '5px',
+            border: '1px solid #fff',
+            background: !selectedCategory ? '#fff' : 'transparent',
+            color: !selectedCategory ? '#000' : '#fff',
+          }}
+          onClick={() => setSelectedCategory('')}
+        >
+          All
+        </button>
         {allGenres.map((genre, index) => (
           <button
             key={index}
             onClick={() => handleChangeSelectedCategory(genre)}
+            style={{
+              padding: '5px 10px',
+              borderRadius: '5px',
+              border: '1px solid #fff',
+              background: selectedCategory === genre ? '#fff' : 'transparent',
+              color: selectedCategory === genre ? '#000' : '#fff',
+            }}
           >
             {genre}
           </button>
         ))}
       </div>
-      {filteredMovies.map((movie, index) => (
-        <div key={index}>
-          <div data-testid='movie'>{movie.title}</div>
-        </div>
-      ))}
+      <div style={{ display: 'flex', flexWrap: 'wrap', padding: '20px' }}>
+        {filteredMovies.map((movie, index) => (
+          <Thumbnail
+            key={index}
+            thumbnail={movie.thumbnail}
+            title={movie.title}
+            releaseYear={movie.year}
+            rating={movie.rating}
+            movieData={movie}
+          />
+        ))}
+      </div>
     </>
   );
 };
