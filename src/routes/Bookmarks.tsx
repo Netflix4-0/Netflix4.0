@@ -1,4 +1,5 @@
-import { Fragment, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { Thumbnail } from '../components/index.ts';
 import { BookmarkContext } from '../context/bookmarkContext';
 import { movies } from '../data/index.ts';
 import { MovieData } from '../types/types';
@@ -18,38 +19,34 @@ export const Bookmarks = () => {
   movies as MovieData[];
 
   return (
-    <div>
+    <>
       <h1>Bookmarks</h1>
-      <h2>All available movies</h2>
-      {movies.map((movie, index) => (
-        <Fragment key={index}>
-          <p>
-            {movie.title}
-            <button
-              onClick={() => addBookmark(movie)}
-              disabled={
-                loading
-                  ? false
-                  : bookmarks.some(bookmark => bookmark.title === movie.title)
-              }
-            >
-              {' '}
-              Add bookmark
-            </button>
-          </p>
-        </Fragment>
-      ))}
       <h2>My bookmarks</h2>
-      {bookmarks.map((bookmark, index) => (
-        <Fragment key={index}>
-          <p>
-            {bookmark.title}
-            <button onClick={() => removeBookmark(bookmark)}>
-              Remove bookmark
-            </button>
-          </p>
-        </Fragment>
-      ))}
-    </div>
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '15px',
+          padding: '10px 25px',
+        }}
+      >
+        {' '}
+        {bookmarks.map((bookmark, index) => (
+          <div style={{ display: 'flex', flexWrap: 'wrap', padding: '20px' }}>
+            <Thumbnail
+              key={index}
+              thumbnail={bookmark.thumbnail}
+              title={bookmark.title}
+              releaseYear={bookmark.year}
+              rating={bookmark.rating}
+              movieData={bookmark}
+            />
+            {/* <button onClick={() => removeBookmark(bookmark)}>
+            Remove bookmark
+          </button> */}
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
