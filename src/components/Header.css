@@ -1,0 +1,46 @@
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 0 1rem;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.link:hover {
+  color: #49a1f0;
+}
+
+.logo {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  transition: 0.15s;
+}
+.logo:hover {
+  transform: scale(1.012);
+}
+
+@media (max-width: 768px) {
+  .header {
+    gap: 1rem;
+    height: 3rem;
+  }
+  .headerLogo {
+    height: 2rem;
+  }
+  .link {
+    font-size: 12px;
+  }
+}
