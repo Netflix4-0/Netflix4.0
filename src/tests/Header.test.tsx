@@ -27,4 +27,15 @@ describe('Header', () => {
     const bookmarksLink = within(header).getByText('Bookmarks');
     expect(bookmarksLink).toBeInTheDocument();
   });
+
+  it('should exist a logo in the header', async () => {
+    render(
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>
+    );
+    const header = await waitFor(() => screen.getByRole('header'));
+    const logo = within(header).getByRole('img');
+    expect(logo).toBeInTheDocument();
+  });
 });
