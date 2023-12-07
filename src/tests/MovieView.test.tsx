@@ -83,3 +83,32 @@ test('renders thumbnail for a specific movie', () => {
 
   expect(screen.getByAltText(movie.title)).toBeInTheDocument();
 });
+
+test('renders genres in MovieView for a specific movie', () => {
+  const movieTitleToRender = 'Pulp Fiction';
+
+  const { movie } = setupMovieView(movieTitleToRender);
+
+  const genres = movie.genre.split(', ');
+
+  genres.forEach(genre => {
+    expect(
+      screen.getByText(genre, { selector: '.genre-item' })
+    ).toBeInTheDocument();
+  });
+});
+
+test('renders actors in MovieView', () => {
+  const movieTitleToRender = 'The Matrix';
+
+  const { movie } = setupMovieView(movieTitleToRender);
+
+  console.log('Actors: ', movie.actors);
+
+  const actorsList = screen.getByText('Actors:', { selector: 'h3' });
+  expect(actorsList).toBeInTheDocument();
+
+  movie.actors.forEach(actor => {
+    expect(screen.getByText(actor, { selector: 'li' })).toBeInTheDocument();
+  });
+});
