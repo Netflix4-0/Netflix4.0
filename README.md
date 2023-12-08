@@ -16,9 +16,9 @@ Samtliga features måste vara implementerade för ett G. Sidan är uppdelad i fy
 
 - [ ] Både "Trending" och "Recommended for you" ska ligga i en Carousel.
 
-- [ ] Det ska finnas ett sökfält där man kan söka bland tillgängliga filmer.
+- [x] Det ska finnas ett sökfält där man kan söka bland tillgängliga filmer.
 
-- [ ] Om inte thumbnailen fungerar bör man använda en placeholder.
+- [x] Om inte thumbnailen fungerar bör man använda en placeholder.
 
 #### Kategori
 
@@ -36,17 +36,17 @@ Samtliga features måste vara implementerade för ett G. Sidan är uppdelad i fy
 
 - [x] Här ska all information som finns om filmen i data.json visas.
 
-- [ ] Man ska också kunna bokmärka eller ta bort bokmärkningen från filmen.
+- [x] Man ska också kunna bokmärka eller ta bort bokmärkningen från filmen.
 
 #### För alla views
 
 - [ ] Klickar man på en thumbnail för en film ska man gå till film-viewen för den aktuella filmen.
 
-- [ ] Man ska kunna bokmärka en film från thumbnailen.
+- [x] Man ska kunna bokmärka en film från thumbnailen.
 
 - [ ] Alla sidor ska vara mobilanpassade.
 
-- [ ] Vid varje thumbnail ska årtal och åldergräns visas på filmen.
+- [x] Vid varje thumbnail ska årtal och åldergräns visas på filmen.
 
 - [ ] Man ska kunna navigera mellan olika sidor på ett intuitivt sätt.
 
