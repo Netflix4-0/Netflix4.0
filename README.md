@@ -32,9 +32,9 @@ Samtliga features måste vara implementerade för ett G. Sidan är uppdelad i fy
 
 #### Film-view
 
-- [ ] Hit kommer man om man klickar på en thumbnail.
+- [x] Hit kommer man om man klickar på en thumbnail.
 
-- [ ] Här ska all information som finns om filmen i data.json visas.
+- [x] Här ska all information som finns om filmen i data.json visas.
 
 - [ ] Man ska också kunna bokmärka eller ta bort bokmärkningen från filmen.
 
