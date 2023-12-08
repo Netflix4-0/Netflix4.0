@@ -1,20 +1,37 @@
 .searchBox {
   margin-top: 2rem;
+  padding-left: 15px;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
 }
 .searchInput {
   border-radius: 0.5rem;
-  height: 2rem;
-  width: 12rem;
-  padding-left: 0.4rem;
-  outline: none;
+  background: transparent;
+  color: white;
+  width: 100%;
+  padding: 1.5em;
+  border: 1px solid #fff;
+  margin-top: 10px;
+  font-size: 16px;
+}
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.521);
 }
 
 .movieSection {
   margin-top: 2rem;
   width: 100%;
+}
+.genreTitle {
+  padding-left: 15px;
+}
+
+.searchResult {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .allMoviesInGenre::-webkit-scrollbar {
@@ -25,13 +42,7 @@
   display: flex;
   width: 100%;
   overflow-y: hidden;
-  gap: 1rem;
-}
-.movie {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
+  /* gap: 1rem; */
 }
 .moviePicture {
   width: 15rem;
@@ -40,4 +51,7 @@
 }
 .movieTitle {
   height: 2rem;
+}
+.moviesSectionContainer {
+  padding: 0 2rem;
 }

@@ -33,6 +33,7 @@ export const CategoryPage = () => {
           flexWrap: 'wrap',
           gap: '15px',
           padding: '10px 25px',
+          marginTop: '4rem',
         }}
       >
         <button

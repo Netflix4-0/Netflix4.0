@@ -32,6 +32,8 @@ export const Thumbnail = ({
     }
   };
 
+  const bookmarkedMovie = bookmarks.find(movie => movie.title === title);
+
   return (
     <NavLink
       to={`/movie/${title}`}
@@ -46,16 +48,14 @@ export const Thumbnail = ({
           </div>
         </div>
         <div className='thumbnail'>
-          {bookmarks.includes(movieData) ? (
-            <i
-              onClick={e => handleBookmark(e, movieData)}
-              className='fa-sharp fa-solid fa-bookmark fa-2xl'
-            ></i>
+          {bookmarkedMovie ? (
+            <button onClick={e => handleBookmark(e, movieData)}>
+              <i className='fa-sharp fa-solid fa-bookmark fa-2xl bookmarkIcon'></i>
+            </button>
           ) : (
-            <i
-              onClick={e => handleBookmark(e, movieData)}
-              className='fa-sharp fa-regular fa-bookmark fa-2xl'
-            ></i>
+            <button onClick={e => handleBookmark(e, movieData)}>
+              <i className='fa-sharp fa-regular fa-bookmark fa-2xl bookmarkIcon'></i>
+            </button>
           )}
           <img
             src={thumbnail}

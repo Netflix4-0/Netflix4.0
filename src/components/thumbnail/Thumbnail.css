@@ -23,7 +23,7 @@
   align-items: flex-end;
 }
 
-.fa-bookmark {
+.thumbnailContainer .fa-bookmark {
   padding: 10px;
   top: 5px;
   right: 0;
@@ -33,4 +33,16 @@
 
 .thumbnail img {
   width: 250px;
+}
+.bookmarkButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  transition: 0.15s;
+}
+.bookmarkButton:hover {
+  color: #fa7900b1;
 }
