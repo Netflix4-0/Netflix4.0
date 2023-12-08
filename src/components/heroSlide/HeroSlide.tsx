@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import SwiperCore from 'swiper';
 import 'swiper/css';
@@ -17,12 +17,23 @@ export const HeroSlide = () => {
   const { bookmarks, addBookmark, removeBookmark } =
     useContext(BookmarkContext);
 
+  useEffect(() => {
+    console.log('Bookmarks in HeroSlide:', bookmarks);
+  }, [bookmarks]);
+
+  const bookmarkedMovie = (movie: MovieData) => {
+    return bookmarks.some(b => b.title === movie.title);
+  };
+
   const handleBookmark = (e: React.MouseEvent, movie: MovieData) => {
     e.preventDefault();
+    console.log('Clicked on movie:', movie);
 
-    if (bookmarks.includes(movie)) {
+    if (bookmarkedMovie(movie)) {
+      console.log('Removing bookmark:', movie);
       removeBookmark(movie);
     } else {
+      console.log('Adding bookmark:', movie);
       addBookmark(movie);
     }
   };
@@ -59,7 +70,7 @@ export const HeroSlide = () => {
 
                 <button
                   className={`hero-slide-bookmark ${
-                    bookmarks.includes(slide) ? 'bookmarked' : ''
+                    bookmarkedMovie(slide) ? 'bookmarked' : ''
                   }`}
                   onClick={e => handleBookmark(e, slide)}
                 >
