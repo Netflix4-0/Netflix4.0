@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { BookmarkContext } from '../context';
 import { movies } from '../data';
@@ -7,6 +7,10 @@ import ErrorPage from './ErrorPage';
 import './MovieView.css';
 
 export const MovieView = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { bookmarks, addBookmark, removeBookmark } =
     useContext(BookmarkContext);
 
