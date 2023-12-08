@@ -68,7 +68,7 @@ export const HeroSlide = () => {
                   onClick={e => handleBookmark(e, slide)}
                 >
                   <i className='fa-solid fa-bookmark hero-slide-icon'></i>
-                  Bookmark
+                  {bookmarkedMovie(slide) ? 'Bookmarked' : 'Bookmark'}
                 </button>
               </div>
             </div>
