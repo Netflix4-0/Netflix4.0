@@ -32,19 +32,14 @@ export const Bookmarks = () => {
       >
         {' '}
         {bookmarks.map((bookmark, index) => (
-          <div style={{ display: 'flex', flexWrap: 'wrap', padding: '20px' }}>
-            <Thumbnail
-              key={index}
-              thumbnail={bookmark.thumbnail}
-              title={bookmark.title}
-              releaseYear={bookmark.year}
-              rating={bookmark.rating}
-              movieData={bookmark}
-            />
-            {/* <button onClick={() => removeBookmark(bookmark)}>
-            Remove bookmark
-          </button> */}
-          </div>
+          <Thumbnail
+            key={index}
+            thumbnail={bookmark.thumbnail}
+            title={bookmark.title}
+            releaseYear={bookmark.year}
+            rating={bookmark.rating}
+            movieData={bookmark}
+          />
         ))}
       </div>
     </>
