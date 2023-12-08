@@ -1,14 +1,22 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
-
 import { MemoryRouter } from 'react-router-dom';
-import App from '../App';
+import { describe, expect, it } from 'vitest';
+import { Thumbnail } from '../components';
+import data from '../data/movies.json';
+import { MovieData } from '../types/types';
 
 describe('Thumbnail', () => {
   it('should render thumbnail component and its content', () => {
+    const movieData: MovieData = data[0];
     render(
       <MemoryRouter>
-        <App />
+        <Thumbnail
+          thumbnail={movieData.thumbnail}
+          title={movieData.title}
+          releaseYear={movieData.year}
+          rating={movieData.rating}
+          movieData={movieData}
+        />
       </MemoryRouter>
     );
 
@@ -24,7 +32,7 @@ describe('Thumbnail', () => {
     expect(screen.getByRole('heading', { name: 'R' })).toBeInTheDocument();
     // Thumbnail img
     expect(screen.getByRole('img')).toBeInTheDocument();
-    // Bookmark icon
-    expect(screen.getByTestId('bookmarkIcon')).toBeInTheDocument();
+    // Bookmark button
+    expect(screen.getByRole('button')).toBeInTheDocument();
   });
 });

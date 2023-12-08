@@ -11,12 +11,12 @@
   color: white;
   width: 100%;
   padding: 1.5em;
-  border: 1px solid #FFF;
+  border: 1px solid #fff;
   margin-top: 10px;
   font-size: 16px;
 }
 .searchInput::placeholder {
-color: rgba(255, 255, 255, 0.521);
+  color: rgba(255, 255, 255, 0.521);
 }
 
 .movieSection {
@@ -36,10 +36,6 @@ color: rgba(255, 255, 255, 0.521);
 
 .allMoviesInGenre::-webkit-scrollbar {
   display: none;
-}
-.asd {
-  display: flex;
-  width: 100%;
 }
 
 .allMoviesInGenre {

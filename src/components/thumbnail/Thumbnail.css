@@ -24,14 +24,25 @@
 }
 
 .thumbnailContainer .fa-bookmark {
-    padding: 10px;
-    top: 5px;
-    right: 0;
-    color: #FA7800;
-    position: absolute;
-
+  padding: 10px;
+  top: 5px;
+  right: 0;
+  color: #fa7800;
+  position: absolute;
 }
 
 .thumbnail img {
   width: 250px;
+}
+.bookmarkButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  transition: 0.15s;
+}
+.bookmarkButton:hover {
+  color: #fa7900b1;
 }
