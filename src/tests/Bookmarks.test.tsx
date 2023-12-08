@@ -66,7 +66,7 @@ describe('Bookmark related tests:', () => {
     await user.click(addBookmarkButton);
 
     // Checks theres now two elements with the text 'Inception'
-    let inceptionElements = await screen.findAllByText('Inception');
+    const inceptionElements = await screen.findAllByText('Inception');
     expect(inceptionElements.length).toBe(2);
   });
   test('User can remove a bookmark', async () => {

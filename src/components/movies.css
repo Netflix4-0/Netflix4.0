@@ -25,19 +25,50 @@
   display: flex;
   width: 100%;
   overflow-y: hidden;
-  gap: 1rem;
+  gap: 1 rem;
 }
 .movie {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  justify-content: space-between;
+  margin: 0.7rem 0.7rem 0rem 0rem;
   margin-bottom: 2rem;
 }
 .moviePicture {
-  width: 15rem;
+  max-width: 15rem;
   height: 20rem;
   object-fit: cover;
+  border-radius: 0.3rem;
 }
 .movieTitle {
-  height: 2rem;
+  height: 2.5rem;
+  margin-top: 0.5rem;
+}
+
+.movie-list-wrapper .swiper-slide {
+  width: 15%;
+}
+
+@media (max-width: 1024px) {
+  .movie-list-wrapper .swiper-slide {
+    width: 30%;
+  }
+}
+
+@media (max-width: 850px) {
+  .movie-list-wrapper .swiper-slide {
+    width: 40%;
+  }
+}
+
+@media (max-width: 500px) {
+  .movie-list-wrapper .swiper-slide {
+    width: 50%;
+  }
+}
+
+@media (max-width: 400px) {
+  .movie-list-wrapper .swiper-slide {
+    width: 60%;
+  }
 }
