@@ -46,12 +46,12 @@
 }
 
 .movie-list-wrapper .swiper-slide {
-  width: 15%;
+  max-width: 20rem;
 }
 
 @media (max-width: 1024px) {
   .movie-list-wrapper .swiper-slide {
-    width: 30%;
+    width: 20rem;
   }
 }
 

@@ -91,7 +91,8 @@
   color: white;
 }
 
-.hero-slide-bookmark:hover {
+.hero-slide-bookmark:hover,
+.hero-slide-bookmark.bookmarked {
   background-image: linear-gradient(
     to right top,
     #0041be,

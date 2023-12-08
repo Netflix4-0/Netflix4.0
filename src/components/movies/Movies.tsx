@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
 import { Thumbnail } from '..';
 import data from '../../data/movies.json';
-import { MovieData } from '../../types/types';
 import './movies.css';
 
 export const Movies = () => {
@@ -22,7 +23,7 @@ export const Movies = () => {
         );
 
   return (
-    <div className='moviesSectionContainer'>
+    <div>
       <div className='searchBox'>
         <h4>Search for your favorites</h4>
         <input
@@ -30,34 +31,56 @@ export const Movies = () => {
           type='text'
           value={search}
           onChange={e => setSearch(e.target.value)}
-          placeholder='Search for a movie or actor...'
+          placeholder='Search for a movie'
         />
       </div>
 
       <div className='movieSection'>
         {search === '' ? (
           moviesByGenre.map((genre, index) => (
-            <div key={index}>
-              <h2 className='genreTitle'>{genre}</h2>
-              <div className='allMoviesInGenre'>
-                {filteredMovies
-                  .filter(movie => movie.genre.includes(genre))
-                  .map((m: MovieData, index: number) => (
-                    <Thumbnail
-                      key={index}
-                      title={m.title}
-                      releaseYear={m.year}
-                      rating={m.rating}
-                      movieData={m}
-                      thumbnail={m.thumbnail}
-                    />
-                  ))}
+            <Fragment key={index}>
+              <h2>{genre}</h2>
+              <div className='movie-list-wrapper'>
+                <Swiper
+                  grabCursor={true}
+                  spaceBetween={0}
+                  slidesPerView={'auto'}
+                >
+                  {filteredMovies
+                    .filter(movie => movie.genre.includes(genre))
+                    .map((m, index) => (
+                      <SwiperSlide key={index}>
+                        <Thumbnail
+                          key={index}
+                          title={m.title}
+                          releaseYear={m.year}
+                          rating={m.rating}
+                          movieData={m}
+                          thumbnail={m.thumbnail}
+                        />
+
+                        {/* <div className='movie'>
+                          <img
+                            className='moviePicture'
+                            src={m.thumbnail || 'vite.svg'}
+                            onError={event => {
+                              const target = event.target as HTMLImageElement;
+                              target.src =
+                                'https://github.com/Netflix4-0/Netflix4.0/assets/117076586/0628211e-81a5-482f-84c9-b4cf936ef61b';
+                            }}
+                            alt='movie'
+                          />
+                          <p className='movieTitle'>{m.title}</p>
+                        </div> */}
+                      </SwiperSlide>
+                    ))}
+                </Swiper>
               </div>
-            </div>
+            </Fragment>
           ))
         ) : (
           <div className='searchResult'>
-            {filteredMovies.map((m: MovieData, index: number) => (
+            {filteredMovies.map((m, index) => (
               <Thumbnail
                 key={index}
                 title={m.title}

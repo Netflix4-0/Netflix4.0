@@ -2,11 +2,9 @@
 
 Link to the issue here...
 
-
 ## Solution / Implementation
 
 How have this problem been solved...
-
 
 ## Testing
 

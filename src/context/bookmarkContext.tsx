@@ -30,7 +30,20 @@ export const BookmarkProvider = ({ children }: Props) => {
   };
 
   const removeBookmark = (bookmark: MovieData) => {
-    setBookmarks(bookmarks.filter(b => b !== bookmark));
+    // Filter out the bookmark to be removed based on custom equality check
+    setBookmarks(bookmarks.filter(b => !areMoviesEqual(b, bookmark)));
+  };
+
+  /**
+   * Checks if two movie objects are equal based on their titles.
+   * This function is used to determine equality when removing a movie from bookmarks.
+   *
+   * @param {MovieData} movie1 - The first movie object.
+   * @param {MovieData} movie2 - The second movie object.
+   * @returns {boolean} True if the titles of the movies are the same, indicating equality.
+   */
+  const areMoviesEqual = (movie1: MovieData, movie2: MovieData) => {
+    return movie1.title === movie2.title;
   };
 
   return (

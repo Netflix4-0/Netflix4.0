@@ -2,9 +2,9 @@ import { Fragment, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import data from '../data/movies.json';
-import './movies.css';
+import '././movies/movies.css';
 
-export const Movies = () => {
+export const newMovies = () => {
   const [search, setSearch] = useState('');
   const moviesByGenre = [
     ...new Set(data.flatMap(movie => movie.genre.split(', '))),
