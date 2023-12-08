@@ -1,5 +1,5 @@
 import { HeroSlide } from '../components';
-import { Movies } from '../components/Movies';
+import { Movies } from '../components/movies/Movies';
 
 export const HomePage = () => {
   return (
