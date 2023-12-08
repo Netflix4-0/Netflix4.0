@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import SwiperCore from 'swiper';
 import 'swiper/css';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { movies } from '../../data';
 import './HeroSlide.css';
@@ -13,7 +13,10 @@ export const HeroSlide = () => {
 
   return (
     <Swiper
-      modules={[Autoplay]}
+      pagination={{
+        dynamicBullets: true,
+      }}
+      modules={[Autoplay, Pagination]}
       grabCursor={true}
       spaceBetween={0}
       slidesPerView={1}
