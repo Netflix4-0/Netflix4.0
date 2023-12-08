@@ -2,7 +2,6 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { expect, test } from 'vitest';
 import { HeroSlide } from '../components';
-import { MemoryRouter } from 'react-router-dom';
 
 const setupHeroSlide = () => {
   render(

@@ -1,7 +1,7 @@
 import { render, screen, waitFor, within } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
-import { Footer } from '../components/Footer';
+import { Footer } from '../components';
 
 describe('Footer', () => {
   it('should exist a footer', async () => {
