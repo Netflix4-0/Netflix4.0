@@ -1,12 +1,32 @@
+import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
+import { BookmarkContext } from '../context';
 import { movies } from '../data';
+import { MovieData } from '../types/types';
 import ErrorPage from './ErrorPage';
 import './MovieView.css';
 
 export const MovieView = () => {
+  const { bookmarks, addBookmark, removeBookmark } =
+    useContext(BookmarkContext);
+
+  const bookmarkedMovie = (movie: MovieData) => {
+    return bookmarks.some(b => b.title === movie.title);
+  };
+
   const params = useParams();
 
   const movie = movies.find(movie => movie.title === params.id);
+
+  const handleBookmark = (e: React.MouseEvent, movie: MovieData) => {
+    e.preventDefault();
+
+    if (bookmarkedMovie(movie)) {
+      removeBookmark(movie);
+    } else {
+      addBookmark(movie);
+    }
+  };
 
   if (!movie) {
     return <ErrorPage />;
@@ -28,6 +48,15 @@ export const MovieView = () => {
             <div className='trending-text'>Trending Now</div>
           )}
           <h2>{movie.title}</h2>
+          <button
+            className={`movie-view-bookmark ${
+              bookmarkedMovie(movie) ? 'bookmarked' : ''
+            }`}
+            onClick={e => handleBookmark(e, movie)}
+          >
+            <i className='fa-solid fa-bookmark hero-slide-icon'></i>
+            {bookmarkedMovie(movie) ? 'Bookmarked' : 'Bookmark'}
+          </button>
           <div className='genres-list'>
             <div className='genre-container'>
               {genres.map((genre, index) => (
