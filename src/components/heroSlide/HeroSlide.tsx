@@ -1,15 +1,35 @@
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import SwiperCore from 'swiper';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { BookmarkContext } from '../../context';
 import { movies } from '../../data';
+import { MovieData } from '../../types/types';
 import './HeroSlide.css';
 
 export const HeroSlide = () => {
   SwiperCore.use([Autoplay]);
 
   const trendingMovies = movies.filter(movie => movie.isTrending);
+
+  const { bookmarks, addBookmark, removeBookmark } =
+    useContext(BookmarkContext);
+
+  const bookmarkedMovie = (movie: MovieData) => {
+    return bookmarks.some(b => b.title === movie.title);
+  };
+
+  const handleBookmark = (e: React.MouseEvent, movie: MovieData) => {
+    e.preventDefault();
+
+    if (bookmarkedMovie(movie)) {
+      removeBookmark(movie);
+    } else {
+      addBookmark(movie);
+    }
+  };
 
   return (
     <Swiper
@@ -41,9 +61,14 @@ export const HeroSlide = () => {
                   </button>
                 </NavLink>
 
-                <button className='hero-slide-bookmark'>
+                <button
+                  className={`hero-slide-bookmark ${
+                    bookmarkedMovie(slide) ? 'bookmarked' : ''
+                  }`}
+                  onClick={e => handleBookmark(e, slide)}
+                >
                   <i className='fa-solid fa-bookmark hero-slide-icon'></i>
-                  Bookmark
+                  {bookmarkedMovie(slide) ? 'Bookmarked' : 'Bookmark'}
                 </button>
               </div>
             </div>
