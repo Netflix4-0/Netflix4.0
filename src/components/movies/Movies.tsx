@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Thumbnail } from '..';
 import data from '../../data/movies.json';
 import { MovieData } from '../../types/types';
@@ -39,20 +40,21 @@ export const Movies = () => {
           moviesByGenre.map((genre, index) => (
             <div key={index}>
               <h2 className='genreTitle'>{genre}</h2>
-              <div className='allMoviesInGenre'>
+              <Swiper spaceBetween={10} slidesPerView={'auto'} navigation>
                 {filteredMovies
                   .filter(movie => movie.genre.includes(genre))
                   .map((m: MovieData, index: number) => (
-                    <Thumbnail
-                      key={index}
-                      title={m.title}
-                      releaseYear={m.year}
-                      rating={m.rating}
-                      movieData={m}
-                      thumbnail={m.thumbnail}
-                    />
+                    <SwiperSlide key={m.thumbnail || index}>
+                      <Thumbnail
+                        title={m.title}
+                        releaseYear={m.year}
+                        rating={m.rating}
+                        movieData={m}
+                        thumbnail={m.thumbnail}
+                      />
+                    </SwiperSlide>
                   ))}
-              </div>
+              </Swiper>
             </div>
           ))
         ) : (
