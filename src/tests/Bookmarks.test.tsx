@@ -2,12 +2,14 @@ import '@testing-library/jest-dom';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { afterEach, describe, expect, test } from 'vitest';
+import { Header } from '../components';
 import { BookmarkProvider } from '../context/bookmarkContext';
 import movieData from '../data/movies.json';
 import { Bookmarks } from '../routes/Bookmarks';
 import { CategoryPage } from '../routes/CategoryPage';
+import { HomePage } from '../routes/HomePage';
 
 afterEach(() => {
   sessionStorage.clear();
@@ -15,7 +17,7 @@ afterEach(() => {
 
 // Since the users can not add bookmarks on the bookmarks page this test is done on the category page
 describe('Bookmark related tests:', () => {
-  test.only('User can add a bookmark', async () => {
+  test('User can add a bookmark', async () => {
     render(
       <MemoryRouter>
         <BookmarkProvider>
@@ -50,37 +52,77 @@ describe('Bookmark related tests:', () => {
     await expect(bookmarkIcon).not.toHaveClass('fa-regular');
   });
 
-  test('User can view added bookmarks', async () => {
+  test.only('The user can view added bookmarks on the bookmarks page', async () => {
     render(
-      <BookmarkProvider>
-        <Bookmarks />
-      </BookmarkProvider>
+      <MemoryRouter>
+        <BookmarkProvider>
+          <Header />
+          <Routes>
+            <Route index element={<HomePage />} />
+            <Route path='bookmarks' element={<Bookmarks />} />
+          </Routes>
+        </BookmarkProvider>
+      </MemoryRouter>
     );
-
     const user = userEvent.setup();
 
-    // Checks if we're on the right page
-    const pageHeader = screen.getByText('My bookmarks');
-    expect(pageHeader).toBeInTheDocument();
+    let heading = screen.queryByRole('heading', {
+      name: /bookmarks/i,
+      level: 1,
+    });
 
-    // Finds the Element which cointains the text 'Inception'
-    // and the parent element it's in
-    const inceptionElement = await screen.findByText('Inception');
-    const parentElement = inceptionElement.closest('p');
+    // Checks that the bookmarks page is not rendered yet
+    expect(heading).not.toBeInTheDocument();
 
-    if (!parentElement) {
-      throw new Error('Parent element not found');
+    const category = await screen.findByText('Drama');
+    expect(category).toBeInTheDocument();
+    const movieSection = category.closest('div');
+    if (!movieSection) {
+      throw new Error('Movie section element not found');
     }
 
-    // Find the "Add bookmark" button within the parentElement
-    const addBookmarkButton = within(parentElement).getByText('Add bookmark');
+    const movieTitle = within(movieSection).getByText(
+      'The Shawshank Redemption'
+    );
+    const movieParent = movieTitle.closest('div');
 
-    await user.click(addBookmarkButton);
+    if (!movieParent) {
+      throw new Error('Movie parent element not found');
+    }
 
-    // Checks theres now two elements with the text 'Inception'
-    const inceptionElements = await screen.findAllByText('Inception');
-    expect(inceptionElements.length).toBe(2);
+    const bookmarkButton = within(movieParent).getByRole('button');
+    const bookmarkIcon = bookmarkButton.querySelector('i');
+
+    // Checks that the bookmark icon is not regular which means not added to bookmarks
+    await expect(bookmarkIcon).toHaveClass('fa-regular');
+
+    await user.click(bookmarkButton);
+
+    // Find the link and navigate to the bookmarks page
+    const bookmarksMenuLink = screen.getByRole('link', { name: /Bookmarks/i });
+    await user.click(bookmarksMenuLink);
+
+    heading = screen.getByRole('heading', {
+      name: /Bookmarks/i,
+      level: 1,
+    });
+
+    // Checks that we're on the bookmarks page
+    expect(heading).toBeInTheDocument();
+    const bookmarksDiv = heading.closest('div');
+
+    if (!bookmarksDiv) {
+      throw new Error('Bookmarks div not found');
+    }
+
+    // Find the bookmarked movie title
+    const bookmarkTitle = within(bookmarksDiv).getByText(
+      'The Shawshank Redemption'
+    );
+
+    expect(bookmarkTitle).toContainHTML('The Shawshank Redemption');
   });
+
   test('User can remove a bookmark', async () => {
     render(
       <BookmarkProvider>
