@@ -64,25 +64,6 @@ export const Movies = () => {
             </Swiper>
           </div>
         ) : (
-          // moviesByGenre.map((genre, index) => (
-          //   <div key={index}>
-          //     <h2 className='genreTitle'>{genre}</h2>
-          //     <Swiper spaceBetween={10} slidesPerView={'auto'} navigation>
-          //       {filteredMovies
-          //         .filter(movie => movie.genre.includes(genre))
-          //         .map((m: MovieData, index: number) => (
-          //           <SwiperSlide key={m.thumbnail || index}>
-          //             <Thumbnail
-          //               title={m.title}
-          //               releaseYear={m.year}
-          //               rating={m.rating}
-          //               movieData={m}
-          //               thumbnail={m.thumbnail}
-          //             />
-          //           </SwiperSlide>
-          //         ))}
-          //     </Swiper>
-          //   </div>
           <div className='searchResult'>
             {filteredMovies.map((m: MovieData, index: number) => (
               <Thumbnail
