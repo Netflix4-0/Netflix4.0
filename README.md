@@ -10,11 +10,11 @@ Samtliga features måste vara implementerade för ett G. Sidan är uppdelad i fy
 
 #### Hem
 
-- [ ] Det ska finnas en sektion "Trending" där man kan se några olika filmer som trendar just nu.
+- [x] Det ska finnas en sektion "Trending" där man kan se några olika filmer som trendar just nu.
 
-- [ ] Det ska finnas en sektion "Recommended for you" där 4-10 rekommenderade filmer visas. Dessa kan ni slumpa fram. Du får dock inte rekommendera en film som finns någon annanstans i flödet, exempelvis i trending.
+- [x] Det ska finnas en sektion "Recommended for you" där 4-10 rekommenderade filmer visas. Dessa kan ni slumpa fram. Du får dock inte rekommendera en film som finns någon annanstans i flödet, exempelvis i trending.
 
-- [ ] Både "Trending" och "Recommended for you" ska ligga i en Carousel.
+- [x] Både "Trending" och "Recommended for you" ska ligga i en Carousel.
 
 - [x] Det ska finnas ett sökfält där man kan söka bland tillgängliga filmer.
 

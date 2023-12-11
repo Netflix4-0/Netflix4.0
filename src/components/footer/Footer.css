@@ -8,8 +8,9 @@ footer {
   row-gap: 1rem;
 }
 .linksContainer {
+  width: 100%;
   display: flex;
-  gap: 1rem;
+  justify-content: space-evenly;
 }
 .footerLinks {
   display: flex;
