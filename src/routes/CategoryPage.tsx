@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Thumbnail } from '../components';
 import { movies } from '../data';
+import './CategoryPage.css';
 
 export const CategoryPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   // Collect all unique genres from movies
   const allGenres = movies.reduce((genres, movie) => {
@@ -18,51 +20,58 @@ export const CategoryPage = () => {
 
   const handleChangeSelectedCategory = (genre: string) => {
     setSelectedCategory(genre);
+    setIsDropdownOpen(false);
   };
 
   // Filter movies based on the selected category or display all movies if no category is selected
-  const filteredMovies = selectedCategory
-    ? movies.filter(movie => movie.genre.includes(selectedCategory))
-    : movies;
+  const filteredMovies =
+    selectedCategory !== 'All'
+      ? movies.filter(movie => movie.genre.includes(selectedCategory))
+      : movies;
 
   return (
     <>
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '15px',
-          padding: '10px 25px',
-          marginTop: '4rem',
-        }}
-      >
-        <button
-          style={{
-            padding: '5px 10px',
-            borderRadius: '5px',
-            border: '1px solid #fff',
-            background: !selectedCategory ? '#fff' : 'transparent',
-            color: !selectedCategory ? '#000' : '#fff',
-          }}
-          onClick={() => setSelectedCategory('')}
+      <div className='categoryChoiceWrapper'>
+        <div
+          className='categorySelector'
+          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         >
-          All
-        </button>
-        {allGenres.map((genre, index) => (
-          <button
-            key={index}
-            onClick={() => handleChangeSelectedCategory(genre)}
-            style={{
-              padding: '5px 10px',
-              borderRadius: '5px',
-              border: '1px solid #fff',
-              background: selectedCategory === genre ? '#fff' : 'transparent',
-              color: selectedCategory === genre ? '#000' : '#fff',
-            }}
-          >
-            {genre}
-          </button>
-        ))}
+          {selectedCategory}
+          <div>
+            {!isDropdownOpen ? (
+              <i className='fa-sharp fa-solid fa-angle-down fa-xs'></i>
+            ) : (
+              <i className='fa-sharp fa-solid fa-angle-up fa-xs'></i>
+            )}
+          </div>
+        </div>
+        {isDropdownOpen && (
+          <div className='categoryDropdown'>
+            <div
+              className='dropdownChoice'
+              onClick={() => handleChangeSelectedCategory('All')}
+              style={{
+                background: selectedCategory === 'All' ? '#c1c1c1' : '#000',
+                color: selectedCategory === 'All' ? '#000' : '#FFF',
+              }}
+            >
+              All
+            </div>
+            {allGenres.map((genre, index) => (
+              <div
+                className='dropdownChoice'
+                key={index}
+                onClick={() => handleChangeSelectedCategory(genre)}
+                style={{
+                  background: selectedCategory === genre ? '#c1c1c1' : '#000',
+                  color: selectedCategory === genre ? '#000' : '#FFF',
+                }}
+              >
+                {genre}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       <div style={{ display: 'flex', flexWrap: 'wrap', padding: '20px' }}>
         {filteredMovies.map((movie, index) => (
