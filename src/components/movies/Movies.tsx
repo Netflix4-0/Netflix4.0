@@ -1,15 +1,20 @@
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Thumbnail } from '..';
+import { movies } from '../../data';
 import data from '../../data/movies.json';
 import { MovieData } from '../../types/types';
 import './movies.css';
 
 export const Movies = () => {
   const [search, setSearch] = useState('');
-  const moviesByGenre = [
-    ...new Set(data.flatMap(movie => movie.genre.split(', '))),
-  ];
+  // const moviesByGenre = [
+  //   ...new Set(data.flatMap(movie => movie.genre.split(', '))),
+  // ];
+
+  const nonTrendingMovies = movies.filter(movie => !movie.isTrending);
+  const shuffledMovies = nonTrendingMovies.sort(() => Math.random() - 0.5);
+  const selectedMovies = shuffledMovies.slice(0, 10);
 
   const filteredMovies =
     search === ''
@@ -37,27 +42,47 @@ export const Movies = () => {
 
       <div className='movieSection'>
         {search === '' ? (
-          moviesByGenre.map((genre, index) => (
-            <div key={index}>
-              <h2 className='genreTitle'>{genre}</h2>
-              <Swiper spaceBetween={10} slidesPerView={'auto'} navigation>
-                {filteredMovies
-                  .filter(movie => movie.genre.includes(genre))
-                  .map((m: MovieData, index: number) => (
-                    <SwiperSlide key={m.thumbnail || index}>
-                      <Thumbnail
-                        title={m.title}
-                        releaseYear={m.year}
-                        rating={m.rating}
-                        movieData={m}
-                        thumbnail={m.thumbnail}
-                      />
-                    </SwiperSlide>
-                  ))}
-              </Swiper>
-            </div>
-          ))
+          <div>
+            <h2 className='genreTitle'>Recommended for you</h2>
+            <Swiper
+              spaceBetween={10}
+              slidesPerView={'auto'}
+              navigation
+              loop={true}
+            >
+              {selectedMovies.map((m, index) => (
+                <SwiperSlide key={m.thumbnail || index}>
+                  <Thumbnail
+                    title={m.title}
+                    releaseYear={m.year}
+                    rating={m.rating}
+                    movieData={m}
+                    thumbnail={m.thumbnail}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         ) : (
+          // moviesByGenre.map((genre, index) => (
+          //   <div key={index}>
+          //     <h2 className='genreTitle'>{genre}</h2>
+          //     <Swiper spaceBetween={10} slidesPerView={'auto'} navigation>
+          //       {filteredMovies
+          //         .filter(movie => movie.genre.includes(genre))
+          //         .map((m: MovieData, index: number) => (
+          //           <SwiperSlide key={m.thumbnail || index}>
+          //             <Thumbnail
+          //               title={m.title}
+          //               releaseYear={m.year}
+          //               rating={m.rating}
+          //               movieData={m}
+          //               thumbnail={m.thumbnail}
+          //             />
+          //           </SwiperSlide>
+          //         ))}
+          //     </Swiper>
+          //   </div>
           <div className='searchResult'>
             {filteredMovies.map((m: MovieData, index: number) => (
               <Thumbnail

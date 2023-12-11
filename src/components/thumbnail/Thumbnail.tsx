@@ -48,11 +48,17 @@ export const Thumbnail = ({
         </div>
         <div className='thumbnail'>
           {bookmarkedMovie ? (
-            <button onClick={e => handleBookmark(e, movieData)}>
+            <button
+              className='bookmarkButton'
+              onClick={e => handleBookmark(e, movieData)}
+            >
               <i className='fa-sharp fa-solid fa-bookmark fa-2xl bookmarkIcon'></i>
             </button>
           ) : (
-            <button onClick={e => handleBookmark(e, movieData)}>
+            <button
+              className='bookmarkButton'
+              onClick={e => handleBookmark(e, movieData)}
+            >
               <i className='fa-sharp fa-regular fa-bookmark fa-2xl bookmarkIcon'></i>
             </button>
           )}
