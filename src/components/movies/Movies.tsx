@@ -8,12 +8,11 @@ import './movies.css';
 
 export const Movies = () => {
   const [search, setSearch] = useState('');
-  // const moviesByGenre = [
-  //   ...new Set(data.flatMap(movie => movie.genre.split(', '))),
-  // ];
 
   const nonTrendingMovies = movies.filter(movie => !movie.isTrending);
+
   const shuffledMovies = nonTrendingMovies.sort(() => Math.random() - 0.5);
+
   const selectedMovies = shuffledMovies.slice(0, 10);
 
   const filteredMovies =
