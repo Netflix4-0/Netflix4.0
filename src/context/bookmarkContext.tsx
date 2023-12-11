@@ -25,7 +25,10 @@ export const BookmarkProvider = ({ children }: Props) => {
   );
 
   const addBookmark = (bookmark: MovieData) => {
-    if (bookmarks.includes(bookmark)) return;
+    console.log('adding bookmark');
+    if (bookmarks.some(b => b.title === bookmark.title)) {
+      return;
+    }
     setBookmarks([...bookmarks, bookmark]);
   };
 
