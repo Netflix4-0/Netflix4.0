@@ -5,9 +5,11 @@ import { Header } from './components/header/Header';
 
 function App() {
   return (
-    <div>
+    <div className='app-container'>
       <Header />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );
