@@ -123,51 +123,7 @@ describe('Bookmark related tests:', () => {
     expect(bookmarkTitle).toContainHTML('The Shawshank Redemption');
   });
 
-  test('User can remove a bookmark', async () => {
-    render(
-      <BookmarkProvider>
-        <Bookmarks />
-      </BookmarkProvider>
-    );
-
-    const user = userEvent.setup();
-
-    // Finds the Element which cointains the text 'Inception'
-    // and the parent element it's in
-    const inceptionElement = await screen.findByText('Inception');
-    const parentElement = inceptionElement.closest('p');
-
-    if (!parentElement) {
-      throw new Error('Parent element not found');
-    }
-
-    // Find the "Add bookmark" button within the parentElement
-    const addBookmarkButton = within(parentElement).getByText('Add bookmark');
-
-    await user.click(addBookmarkButton);
-
-    // Checks theres now two elements with the text 'Inception'
-    let inceptionElements = await screen.findAllByText('Inception');
-    expect(inceptionElements.length).toBe(2);
-
-    // Find the "Remove bookmark"
-    const removeBookmarkButton = await screen.findByRole('button', {
-      name: 'Remove bookmark',
-    });
-    expect(removeBookmarkButton).toBeInTheDocument();
-
-    // Clicks the remove bookmark button
-    await user.click(removeBookmarkButton);
-
-    // Now the button does not exist in the element
-    expect(removeBookmarkButton).not.toBeInTheDocument();
-
-    // Now there's only one element with the text 'Inception'
-    inceptionElements = await screen.findAllByText('Inception');
-    expect(inceptionElements.length).toBe(1);
-  });
-
-  test.only('The user can remove a bookmark', async () => {
+  test('The user can remove a bookmark', async () => {
     render(
       <MemoryRouter>
         <BookmarkProvider>
@@ -226,6 +182,7 @@ describe('Bookmark related tests:', () => {
     expect(bookmarksDiv).not.toContainHTML('The Shawshank Redemption');
   });
 
+  // Since the users can not add bookmarks on the bookmarks page this test is done on the category page
   test('Bookmarks persist in session storage', async () => {
     // Mock sessionStorage
     const sessionStorageMock = (function () {
@@ -248,9 +205,11 @@ describe('Bookmark related tests:', () => {
     });
 
     render(
-      <BookmarkProvider>
-        <Bookmarks />
-      </BookmarkProvider>
+      <MemoryRouter>
+        <BookmarkProvider>
+          <CategoryPage />
+        </BookmarkProvider>
+      </MemoryRouter>
     );
 
     const user = userEvent.setup();
@@ -261,16 +220,20 @@ describe('Bookmark related tests:', () => {
     );
     expect(sessionBookmarks).toEqual([]);
 
-    const firstMovieElement = await screen.findByText(
+    // Finds the Element which cointains the text 'Inception'
+    // and the parent element it's in
+    const inceptionElement = await screen.findByText(
       'The Shawshank Redemption'
     );
-    const parentElement = firstMovieElement.closest('p');
+    const parentElement = inceptionElement.closest('div');
 
     if (!parentElement) {
       throw new Error('Parent element not found');
     }
 
-    const addBookmarkButton = within(parentElement).getByText('Add bookmark');
+    // Find the "Add bookmark" button within the parentElement
+    const addBookmarkButton = within(parentElement).getByRole('button');
+
     await user.click(addBookmarkButton);
 
     // Gets the first movie from our dataset, which should be The Shawshank Redemption
@@ -282,9 +245,8 @@ describe('Bookmark related tests:', () => {
     );
     expect(sessionBookmarks).toContainEqual(movie);
 
-    const removeBookmarkButton = await screen.findByRole('button', {
-      name: 'Remove bookmark',
-    });
+    const removeBookmarkButton =
+      await within(parentElement).getByRole('button');
     await user.click(removeBookmarkButton);
 
     // Check that the bookmark is not in session storage anymore
