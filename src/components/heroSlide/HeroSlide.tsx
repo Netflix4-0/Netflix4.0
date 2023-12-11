@@ -40,6 +40,7 @@ export const HeroSlide = () => {
       grabCursor={true}
       spaceBetween={0}
       slidesPerView={1}
+      loop={true}
       autoplay={{ delay: 3500 }}
     >
       {trendingMovies.map((slide, index) => (
