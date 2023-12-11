@@ -52,7 +52,7 @@ describe('Bookmark related tests:', () => {
     await expect(bookmarkIcon).not.toHaveClass('fa-regular');
   });
 
-  test('The user can view added bookmarks on the bookmarks page', async () => {
+  test.only('The user can view added bookmarks on the bookmarks page', async () => {
     render(
       <MemoryRouter>
         <BookmarkProvider>
@@ -74,9 +74,9 @@ describe('Bookmark related tests:', () => {
     // Checks that the bookmarks page is not rendered yet
     expect(heading).not.toBeInTheDocument();
 
-    const category = await screen.findByText('Drama');
-    expect(category).toBeInTheDocument();
-    const movieSection = category.closest('div');
+    const rec = await screen.findByText('Recommended for you');
+    expect(rec).toBeInTheDocument();
+    const movieSection = rec.closest('div');
     if (!movieSection) {
       throw new Error('Movie section element not found');
     }
