@@ -52,7 +52,7 @@ describe('Bookmark related tests:', () => {
     await expect(bookmarkIcon).not.toHaveClass('fa-regular');
   });
 
-  test.only('The user can view added bookmarks on the bookmarks page', async () => {
+  test('The user can view added bookmarks on the bookmarks page', async () => {
     render(
       <MemoryRouter>
         <BookmarkProvider>
@@ -130,23 +130,19 @@ describe('Bookmark related tests:', () => {
     );
     const user = userEvent.setup();
 
-    // Finds category and  locates the movie for the test
-    const rec = await screen.findByText('Recommended for you');
-    const movieSection = rec.closest('div');
-    if (!movieSection) {
-      throw new Error('Movie section element not found');
-    }
+    const rec = await screen.findByText('The Godfather: Part II');
+    expect(rec).toBeInTheDocument();
 
-    const movieTitle = within(movieSection).getByText(
-      'The Shawshank Redemption'
-    );
-    const movieParent = movieTitle.closest('div');
+    const movieParent = rec.closest('div');
 
     if (!movieParent) {
       throw new Error('Movie parent element not found');
     }
 
-    const bookmarkButton = within(movieParent).getByRole('button');
+    const bookmarkButton = within(movieParent).getByRole('button', {
+      name: /Bookmark/i,
+    });
+
     await user.click(bookmarkButton);
 
     // Navigate to the bookmarks page
@@ -166,13 +162,13 @@ describe('Bookmark related tests:', () => {
     const bookmarkedButton = within(bookmarksDiv).getByRole('button');
 
     // Checks that the bookmarked movie is in the bookmarks page
-    expect(bookmarksDiv).toContainHTML('The Shawshank Redemption');
+    expect(bookmarksDiv).toContainHTML('The Godfather: Part II');
 
     // Clicks the button to remove the bookmark
     await user.click(bookmarkedButton);
 
     // Checks to it's gone from the bookmarks page
-    expect(bookmarksDiv).not.toContainHTML('The Shawshank Redemption');
+    expect(bookmarksDiv).not.toContainHTML('The Godfather: Part II');
   });
 
   // Since the users can not add bookmarks on the bookmarks page this test is done on the category page
