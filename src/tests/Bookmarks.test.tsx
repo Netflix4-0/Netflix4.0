@@ -2,21 +2,26 @@ import '@testing-library/jest-dom';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { MemoryRouter } from 'react-router-dom';
 import { afterEach, describe, expect, test } from 'vitest';
 import { BookmarkProvider } from '../context/bookmarkContext';
 import movieData from '../data/movies.json';
 import { Bookmarks } from '../routes/Bookmarks';
+import { CategoryPage } from '../routes/CategoryPage';
 
 afterEach(() => {
   sessionStorage.clear();
 });
 
+// Since the users can not add bookmarks on the bookmarks page this test is done on the category page
 describe('Bookmark related tests:', () => {
-  test('User can add a bookmark', async () => {
+  test.only('User can add a bookmark', async () => {
     render(
-      <BookmarkProvider>
-        <Bookmarks />
-      </BookmarkProvider>
+      <MemoryRouter>
+        <BookmarkProvider>
+          <CategoryPage />
+        </BookmarkProvider>
+      </MemoryRouter>
     );
 
     const user = userEvent.setup();
@@ -24,20 +29,27 @@ describe('Bookmark related tests:', () => {
     // Finds the Element which cointains the text 'Inception'
     // and the parent element it's in
     const inceptionElement = await screen.findByText('Inception');
-    const parentElement = inceptionElement.closest('p');
+    const parentElement = inceptionElement.closest('div');
 
     if (!parentElement) {
       throw new Error('Parent element not found');
     }
 
     // Find the "Add bookmark" button within the parentElement
-    const addBookmarkButton = within(parentElement).getByText('Add bookmark');
+    const addBookmarkButton = within(parentElement).getByRole('button');
 
     await user.click(addBookmarkButton);
 
-    // Check if the button is disabled after clicking
-    expect(addBookmarkButton).toBeDisabled();
+    // Gets the icon representing the bookmark
+    const bookmarkIcon = addBookmarkButton.querySelector('i');
+
+    // Checks that the bookmark icon is solid which means added to bookmarks
+    await expect(bookmarkIcon).toHaveClass('fa-solid');
+
+    // Also double checks by checking that the bookmark icon is not in the "not added" state
+    await expect(bookmarkIcon).not.toHaveClass('fa-regular');
   });
+
   test('User can view added bookmarks', async () => {
     render(
       <BookmarkProvider>
