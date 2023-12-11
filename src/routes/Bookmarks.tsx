@@ -1,27 +1,19 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { Thumbnail } from '../components/index.ts';
 import { BookmarkContext } from '../context/bookmarkContext';
-import { movies } from '../data/index.ts';
-import { MovieData } from '../types/types';
 
 export const Bookmarks = () => {
-  const { bookmarks, addBookmark, removeBookmark } =
-    useContext(BookmarkContext);
-
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (bookmarks) {
-      setLoading(false);
-    }
-  }, [bookmarks]);
-
-  movies as MovieData[];
+  const { bookmarks } = useContext(BookmarkContext);
 
   return (
     <>
-      <h1>Bookmarks</h1>
-      <h2>My bookmarks</h2>
+      <h1
+        style={{
+          marginTop: '4rem',
+        }}
+      >
+        Bookmarks
+      </h1>
       <div
         style={{
           display: 'flex',
