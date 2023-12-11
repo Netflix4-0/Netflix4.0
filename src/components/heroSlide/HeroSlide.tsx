@@ -2,16 +2,16 @@ import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import SwiperCore from 'swiper';
 import 'swiper/css';
-import { Autoplay } from 'swiper/modules';
+import 'swiper/css/pagination';
+import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { BookmarkContext } from '../../context';
 import { movies } from '../../data';
 import { MovieData } from '../../types/types';
 import './HeroSlide.css';
 
+SwiperCore.use([Autoplay, Pagination]);
 export const HeroSlide = () => {
-  SwiperCore.use([Autoplay]);
-
   const trendingMovies = movies.filter(movie => movie.isTrending);
 
   const { bookmarks, addBookmark, removeBookmark } =
@@ -33,7 +33,10 @@ export const HeroSlide = () => {
 
   return (
     <Swiper
-      modules={[Autoplay]}
+      pagination={{
+        dynamicBullets: true,
+      }}
+      modules={[Autoplay, Pagination]}
       grabCursor={true}
       spaceBetween={0}
       slidesPerView={1}
