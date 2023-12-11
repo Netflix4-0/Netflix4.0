@@ -40,7 +40,7 @@ Samtliga features måste vara implementerade för ett G. Sidan är uppdelad i fy
 
 #### För alla views
 
-- [ ] Klickar man på en thumbnail för en film ska man gå till film-viewen för den aktuella filmen.
+- [x] Klickar man på en thumbnail för en film ska man gå till film-viewen för den aktuella filmen.
 
 - [x] Man ska kunna bokmärka en film från thumbnailen.
 
