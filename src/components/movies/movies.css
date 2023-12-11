@@ -1,0 +1,61 @@
+.searchBox {
+  margin-top: 2rem;
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.searchInput {
+  border-radius: 0.5rem;
+  background: transparent;
+  color: white;
+  width: 100%;
+  padding: 1.5em;
+  border: 1px solid #fff;
+  margin-top: 10px;
+  font-size: 16px;
+}
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.521);
+}
+
+.movieSection {
+  margin-top: 2rem;
+  width: 100%;
+}
+.genreTitle {
+  padding-left: 15px;
+  margin: 1rem 0rem 0rem 0rem;
+}
+
+.searchResult {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.allMoviesInGenre::-webkit-scrollbar {
+  display: none;
+}
+
+.allMoviesInGenre {
+  display: flex;
+  width: 100%;
+}
+.moviePicture {
+  max-height: 20rem;
+  object-fit: cover;
+}
+.movieTitle {
+  height: 2rem;
+}
+
+.moviesSectionContainer {
+  padding: 0rem 2rem 2rem 0rem;
+}
+
+.moviesSectionContainer .swiper-slide {
+  width: auto;
+  flex-shrink: 0;
+}

@@ -91,7 +91,8 @@
   color: white;
 }
 
-.hero-slide-bookmark:hover {
+.hero-slide-bookmark:hover,
+.hero-slide-bookmark.bookmarked {
   background-image: linear-gradient(
     to right top,
     #0041be,
@@ -123,4 +124,13 @@
 
 .hero-slide-icon {
   margin-right: 10px;
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+  opacity: 1;
+  background-color: #fff;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #0041be;
 }

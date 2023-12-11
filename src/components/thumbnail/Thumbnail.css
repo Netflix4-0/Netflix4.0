@@ -1,36 +1,50 @@
 .thumbnailContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 250px;
-    margin: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 250px;
+  margin: 5px;
 }
 
 .title {
-    min-height: 50px;
-    padding: 5px;
+  /* min-height: 50px; */
+  margin-top: 0.5rem;
+  height: 100%;
+  padding: 5px;
 }
 
 .subTitle {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
 }
 
-.thumbnail {  
-    display: flex;
-    position: relative;
-    align-items: flex-end;
+.thumbnail {
+  display: flex;
+  position: relative;
+  align-items: flex-end;
 }
 
-.fa-bookmark {
-    padding: 10px;
-    top: 5px;
-    right: 0;
-    color: #FA7800;
-    position: absolute;
+.thumbnailContainer .fa-bookmark {
+  padding: 10px;
+  top: 5px;
+  right: 0;
+  color: #fa7800;
+  position: absolute;
 }
 
-.thumbnail img {  
-    width: 250px;
+.thumbnail img {
+  max-height: 23rem;
+}
+.bookmarkButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  transition: 0.15s;
+}
+.bookmarkButton:hover {
+  color: #fa7900b1;
 }
