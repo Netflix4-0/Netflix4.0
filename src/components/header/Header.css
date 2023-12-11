@@ -1,5 +1,5 @@
 header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -10,6 +10,11 @@ header {
   align-items: center;
   gap: 4rem;
   padding: 0 1rem;
+  transition: background-color 0.3s;
+}
+
+header.visible {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .link {

@@ -41,7 +41,6 @@ export const Thumbnail = ({
     >
       <div data-testid='movie' className='thumbnailContainer'>
         <div>
-          <h3 className='title'>{title}</h3>
           <div className='subTitle'>
             <h4>{releaseYear}</h4>
             <h4>{rating}</h4>
@@ -66,6 +65,7 @@ export const Thumbnail = ({
             }}
           />
         </div>
+        <h3 className='title'>{title}</h3>
       </div>
     </NavLink>
   );
