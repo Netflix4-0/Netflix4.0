@@ -74,29 +74,22 @@ describe('Bookmark related tests:', () => {
     // Checks that the bookmarks page is not rendered yet
     expect(heading).not.toBeInTheDocument();
 
-    const rec = await screen.findByText('Recommended for you');
+    const rec = await screen.findByText('The Godfather: Part II');
     expect(rec).toBeInTheDocument();
-    const movieSection = rec.closest('div');
-    if (!movieSection) {
-      throw new Error('Movie section element not found');
-    }
 
-    const movieTitle = within(movieSection).getByText(
-      'The Shawshank Redemption'
-    );
-    const movieParent = movieTitle.closest('div');
+    const movieParent = rec.closest('div');
 
     if (!movieParent) {
       throw new Error('Movie parent element not found');
     }
 
-    const bookmarkButton = within(movieParent).getByRole('button');
-    const bookmarkIcon = bookmarkButton.querySelector('i');
-
-    // Checks that the bookmark icon is not regular which means not added to bookmarks
-    await expect(bookmarkIcon).toHaveClass('fa-regular');
+    const bookmarkButton = within(movieParent).getByRole('button', {
+      name: /Bookmark/i,
+    });
 
     await user.click(bookmarkButton);
+
+    await expect(bookmarkButton).toHaveTextContent('Bookmarked');
 
     // Find the link and navigate to the bookmarks page
     const bookmarksMenuLink = screen.getByRole('link', { name: /Bookmarks/i });
@@ -117,10 +110,10 @@ describe('Bookmark related tests:', () => {
 
     // Find the bookmarked movie title
     const bookmarkTitle = within(bookmarksDiv).getByText(
-      'The Shawshank Redemption'
+      'The Godfather: Part II'
     );
 
-    expect(bookmarkTitle).toContainHTML('The Shawshank Redemption');
+    expect(bookmarkTitle).toContainHTML('The Godfather: Part II');
   });
 
   test('The user can remove a bookmark', async () => {
@@ -138,8 +131,8 @@ describe('Bookmark related tests:', () => {
     const user = userEvent.setup();
 
     // Finds category and  locates the movie for the test
-    const category = await screen.findByText('Drama');
-    const movieSection = category.closest('div');
+    const rec = await screen.findByText('Recommended for you');
+    const movieSection = rec.closest('div');
     if (!movieSection) {
       throw new Error('Movie section element not found');
     }
