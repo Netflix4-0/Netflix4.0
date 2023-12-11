@@ -7,7 +7,7 @@ export const Footer = () => {
       <Link className='footerLogoContainer' to={'/'}>
         <img
           className='footerLogo'
-          src='https://github.com/Netflix4-0/Netflix4.0/assets/117076586/4c41d512-ea91-4829-909f-5d0d4dfa52a3'
+          src='https://github.com/Netflix4-0/Netflix4.0/assets/116897452/16c0260e-8a6e-4eb3-86c9-275caa40e664'
           alt='logo'
         />
       </Link>
