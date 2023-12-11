@@ -52,7 +52,7 @@ describe('Bookmark related tests:', () => {
     await expect(bookmarkIcon).not.toHaveClass('fa-regular');
   });
 
-  test.only('The user can view added bookmarks on the bookmarks page', async () => {
+  test('The user can view added bookmarks on the bookmarks page', async () => {
     render(
       <MemoryRouter>
         <BookmarkProvider>
@@ -165,6 +165,65 @@ describe('Bookmark related tests:', () => {
     // Now there's only one element with the text 'Inception'
     inceptionElements = await screen.findAllByText('Inception');
     expect(inceptionElements.length).toBe(1);
+  });
+
+  test.only('The user can remove a bookmark', async () => {
+    render(
+      <MemoryRouter>
+        <BookmarkProvider>
+          <Header />
+          <Routes>
+            <Route index element={<HomePage />} />
+            <Route path='bookmarks' element={<Bookmarks />} />
+          </Routes>
+        </BookmarkProvider>
+      </MemoryRouter>
+    );
+    const user = userEvent.setup();
+
+    // Finds category and  locates the movie for the test
+    const category = await screen.findByText('Drama');
+    const movieSection = category.closest('div');
+    if (!movieSection) {
+      throw new Error('Movie section element not found');
+    }
+
+    const movieTitle = within(movieSection).getByText(
+      'The Shawshank Redemption'
+    );
+    const movieParent = movieTitle.closest('div');
+
+    if (!movieParent) {
+      throw new Error('Movie parent element not found');
+    }
+
+    const bookmarkButton = within(movieParent).getByRole('button');
+    await user.click(bookmarkButton);
+
+    // Navigate to the bookmarks page
+    const bookmarksMenuLink = screen.getByRole('link', { name: /Bookmarks/i });
+    await user.click(bookmarksMenuLink);
+
+    const heading = screen.getByRole('heading', {
+      name: /Bookmarks/i,
+      level: 1,
+    });
+    const bookmarksDiv = heading.closest('div');
+
+    if (!bookmarksDiv) {
+      throw new Error('Bookmarks div not found');
+    }
+
+    const bookmarkedButton = within(bookmarksDiv).getByRole('button');
+
+    // Checks that the bookmarked movie is in the bookmarks page
+    expect(bookmarksDiv).toContainHTML('The Shawshank Redemption');
+
+    // Clicks the button to remove the bookmark
+    await user.click(bookmarkedButton);
+
+    // Checks to it's gone from the bookmarks page
+    expect(bookmarksDiv).not.toContainHTML('The Shawshank Redemption');
   });
 
   test('Bookmarks persist in session storage', async () => {
