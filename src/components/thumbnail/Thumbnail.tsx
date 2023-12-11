@@ -39,7 +39,7 @@ export const Thumbnail = ({
       to={`/movie/${title}`}
       style={{ textDecoration: 'none', color: '#FFF' }}
     >
-      <div data-testid='movie' className='thumbnailContainer'>
+      <div role='movie' className='thumbnailContainer'>
         <div>
           <h3 className='title'>{title}</h3>
           <div className='subTitle'>

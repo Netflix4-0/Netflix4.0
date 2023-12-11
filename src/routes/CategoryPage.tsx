@@ -39,15 +39,22 @@ export const CategoryPage = () => {
           {selectedCategory}
           <div>
             {!isDropdownOpen ? (
-              <i className='fa-sharp fa-solid fa-angle-down fa-xs'></i>
+              <i
+                data-testid='dropdownIconDown'
+                className='fa-sharp fa-solid fa-angle-down fa-xs'
+              ></i>
             ) : (
-              <i className='fa-sharp fa-solid fa-angle-up fa-xs'></i>
+              <i
+                data-testid='dropdownIconUp'
+                className='fa-sharp fa-solid fa-angle-up fa-xs'
+              ></i>
             )}
           </div>
         </div>
         {isDropdownOpen && (
           <div className='categoryDropdown'>
             <div
+              role='dropdownChoice'
               className='dropdownChoice'
               onClick={() => handleChangeSelectedCategory('All')}
               style={{
@@ -59,6 +66,7 @@ export const CategoryPage = () => {
             </div>
             {allGenres.map((genre, index) => (
               <div
+                role='dropdownChoice'
                 className='dropdownChoice'
                 key={index}
                 onClick={() => handleChangeSelectedCategory(genre)}
