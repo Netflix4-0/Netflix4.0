@@ -1,8 +1,12 @@
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import userEvent from '@testing-library/user-event';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
 import { Thumbnail } from '../components';
+import { BookmarkProvider } from '../context';
 import data from '../data/movies.json';
+import { CategoryPage } from '../routes/CategoryPage';
+import { MovieView } from '../routes/MovieView';
 import { MovieData } from '../types/types';
 
 describe('Thumbnail', () => {
@@ -21,7 +25,7 @@ describe('Thumbnail', () => {
     );
 
     // Find the thumbnail of the movie
-    const thumbnail = screen.getByTestId('movie');
+    const thumbnail = screen.getByRole('movie');
     expect(thumbnail).toBeInTheDocument();
 
     // Title
@@ -34,5 +38,30 @@ describe('Thumbnail', () => {
     expect(screen.getByRole('img')).toBeInTheDocument();
     // Bookmark button
     expect(screen.getByRole('button')).toBeInTheDocument();
+  });
+
+  it('should redirect to movie view page on click', async () => {
+    render(
+      <MemoryRouter>
+        <BookmarkProvider>
+          <Routes>
+            <Route index element={<CategoryPage />} />
+            <Route path='movie/:id' element={<MovieView />} />
+          </Routes>
+        </BookmarkProvider>
+      </MemoryRouter>
+    );
+    const user = userEvent.setup();
+
+    // Find the thumbnail of the movie
+    const thumbnails = screen.getAllByRole('movie');
+    expect(thumbnails[0]).toBeInTheDocument();
+
+    // Making sure it found the expected movie
+    expect(thumbnails[0]).toHaveTextContent('The Shawshank Redemption');
+    await user.click(thumbnails[0]);
+
+    const actorHeading = await screen.findByText('The Shawshank Redemption');
+    expect(actorHeading).toBeInTheDocument();
   });
 });
