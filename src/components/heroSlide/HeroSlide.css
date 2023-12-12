@@ -125,3 +125,12 @@
 .hero-slide-icon {
   margin-right: 10px;
 }
+
+.swiper-pagination .swiper-pagination-bullet {
+  opacity: 1;
+  background-color: #fff;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #0041be;
+}

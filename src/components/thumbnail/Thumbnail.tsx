@@ -41,7 +41,6 @@ export const Thumbnail = ({
     >
       <div role='movie' className='thumbnailContainer'>
         <div>
-          <h3 className='title'>{title}</h3>
           <div className='subTitle'>
             <h4>{releaseYear}</h4>
             <h4>{rating}</h4>
@@ -49,11 +48,17 @@ export const Thumbnail = ({
         </div>
         <div className='thumbnail'>
           {bookmarkedMovie ? (
-            <button onClick={e => handleBookmark(e, movieData)}>
+            <button
+              className='bookmarkButton'
+              onClick={e => handleBookmark(e, movieData)}
+            >
               <i className='fa-sharp fa-solid fa-bookmark fa-2xl bookmarkIcon'></i>
             </button>
           ) : (
-            <button onClick={e => handleBookmark(e, movieData)}>
+            <button
+              className='bookmarkButton'
+              onClick={e => handleBookmark(e, movieData)}
+            >
               <i className='fa-sharp fa-regular fa-bookmark fa-2xl bookmarkIcon'></i>
             </button>
           )}
@@ -66,6 +71,7 @@ export const Thumbnail = ({
             }}
           />
         </div>
+        <h3 className='title'>{title}</h3>
       </div>
     </NavLink>
   );

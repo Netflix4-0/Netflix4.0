@@ -6,10 +6,13 @@ footer {
   align-items: center;
   padding: 0 1rem;
   row-gap: 1rem;
+  position: relative;
+  margin-top: auto;
 }
 .linksContainer {
+  width: 100%;
   display: flex;
-  gap: 1rem;
+  justify-content: space-evenly;
 }
 .footerLinks {
   display: flex;
@@ -24,6 +27,7 @@ footer {
 }
 .footerLogo {
   font-size: 2rem;
+  height: 4rem;
   transition: 0.15s;
   cursor: pointer;
 }

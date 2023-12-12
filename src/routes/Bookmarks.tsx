@@ -1,55 +1,39 @@
-import { Fragment, useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
+import { Thumbnail } from '../components/index.ts';
 import { BookmarkContext } from '../context/bookmarkContext';
-import { movies } from '../data/index.ts';
-import { MovieData } from '../types/types';
 
 export const Bookmarks = () => {
-  const { bookmarks, addBookmark, removeBookmark } =
-    useContext(BookmarkContext);
-
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (bookmarks) {
-      setLoading(false);
-    }
-  }, [bookmarks]);
-
-  movies as MovieData[];
+  const { bookmarks } = useContext(BookmarkContext);
 
   return (
-    <div>
-      <h1>Bookmarks</h1>
-      <h2>All available movies</h2>
-      {movies.map((movie, index) => (
-        <Fragment key={index}>
-          <p>
-            {movie.title}
-            <button
-              onClick={() => addBookmark(movie)}
-              disabled={
-                loading
-                  ? false
-                  : bookmarks.some(bookmark => bookmark.title === movie.title)
-              }
-            >
-              {' '}
-              Add bookmark
-            </button>
-          </p>
-        </Fragment>
-      ))}
-      <h2>My bookmarks</h2>
-      {bookmarks.map((bookmark, index) => (
-        <Fragment key={index}>
-          <p>
-            {bookmark.title}
-            <button onClick={() => removeBookmark(bookmark)}>
-              Remove bookmark
-            </button>
-          </p>
-        </Fragment>
-      ))}
-    </div>
+    <>
+      <h1
+        style={{
+          marginTop: '4rem',
+        }}
+      >
+        Bookmarks
+      </h1>
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '15px',
+          padding: '10px 25px',
+        }}
+      >
+        {' '}
+        {bookmarks.map((bookmark, index) => (
+          <Thumbnail
+            key={index}
+            thumbnail={bookmark.thumbnail}
+            title={bookmark.title}
+            releaseYear={bookmark.year}
+            rating={bookmark.rating}
+            movieData={bookmark}
+          />
+        ))}
+      </div>
+    </>
   );
 };
