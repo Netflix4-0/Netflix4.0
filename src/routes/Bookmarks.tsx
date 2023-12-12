@@ -4,7 +4,6 @@ import { BookmarkContext } from '../context/bookmarkContext';
 
 export const Bookmarks = () => {
   const { bookmarks } = useContext(BookmarkContext);
-
   return (
     <>
       <h1
