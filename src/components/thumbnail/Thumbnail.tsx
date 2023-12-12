@@ -25,14 +25,16 @@ export const Thumbnail = ({
   const handleBookmark = (e: React.MouseEvent, movie: MovieData) => {
     e.preventDefault();
 
-    if (bookmarks.includes(movie)) {
+    if (bookmarks.some(b => b.title === movie.title)) {
       removeBookmark(movie);
     } else {
       addBookmark(movie);
     }
   };
 
-  const bookmarkedMovie = bookmarks.find(movie => movie.title === title);
+  const bookmarkedMovie = (movie: MovieData) => {
+    return bookmarks.some(b => b.title === movie.title);
+  };
 
   return (
     <NavLink
@@ -47,8 +49,9 @@ export const Thumbnail = ({
           </div>
         </div>
         <div className='thumbnail'>
-          {bookmarkedMovie ? (
+          {bookmarkedMovie(movieData) ? (
             <button
+              title='Bookmark'
               className='bookmarkButton'
               onClick={e => handleBookmark(e, movieData)}
             >
@@ -56,6 +59,7 @@ export const Thumbnail = ({
             </button>
           ) : (
             <button
+              title='Bookmark'
               className='bookmarkButton'
               onClick={e => handleBookmark(e, movieData)}
             >
@@ -64,6 +68,7 @@ export const Thumbnail = ({
           )}
           <img
             src={thumbnail}
+            alt={title}
             onError={event => {
               const target = event.target as HTMLImageElement;
               target.src =
