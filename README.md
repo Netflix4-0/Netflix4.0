@@ -22,13 +22,13 @@ Samtliga features måste vara implementerade för ett G. Sidan är uppdelad i fy
 
 #### Kategori
 
-- [ ] Användaren möts av en skärm där man kan välja bland alla tillgängliga kategorier. Tänk på att fler kategorier kan tillkomma i framtiden.
+- [x] Användaren möts av en skärm där man kan välja bland alla tillgängliga kategorier. Tänk på att fler kategorier kan tillkomma i framtiden.
 
 #### Bokmärkta
 
-- [ ] Här ska du kunna se alla dina bokmärkta filmer.
+- [x] Här ska du kunna se alla dina bokmärkta filmer.
 
-- [ ] Bokmärkningen ska kunna hålla igenom en hel session. Man ska alltså kunna refresha sidan.
+- [x] Bokmärkningen ska kunna hålla igenom en hel session. Man ska alltså kunna refresha sidan.
 
 #### Film-view
 
@@ -54,37 +54,37 @@ Samtliga features måste vara implementerade för ett G. Sidan är uppdelad i fy
 
 #### G
 
-- [ ] Applikationen ska vara väl testad med enhets- och/eller integrationstester.
+- [x] Applikationen ska vara väl testad med enhets- och/eller integrationstester.
 
 ### Deployment
 
 #### G
 
-- [ ] Applikationen ska vara uppe på en extern URL. Använd förslagsvis GitHubPages.
+- [x] Applikationen ska vara uppe på en extern URL. Använd förslagsvis GitHubPages.
 
 #### VG
 
-- [ ] Applikationen har en automatiserad deployment via exempelvis GitHubActions.
+- [x] Applikationen har en automatiserad deployment via exempelvis GitHubActions.
 
-- [ ] Applikationen har automatiska kontroller för att förhindra att dålig kod går igenom Pull Requests.
+- [x] Applikationen har automatiska kontroller för att förhindra att dålig kod går igenom Pull Requests.
 
 ### Workflow
 
 #### G
 
-- [ ] Nya features implementeras huvudsakligen via Pull Requests.
+- [x] Nya features implementeras huvudsakligen via Pull Requests.
 
-- [ ] Gruppen följer en konsekvent kodningsstil.
+- [x] Gruppen följer en konsekvent kodningsstil.
 
 #### VG
 
-- [ ] Gruppen har en historik i main som är lätt att följa. Historik i era egna branches är irrelevant.
+- [x] Gruppen har en historik i main som är lätt att följa. Historik i era egna branches är irrelevant.
 
-- [ ] Gruppen har lagt fram Pull Requests som är enkla att förstå och ge förslag till.
+- [x] Gruppen har lagt fram Pull Requests som är enkla att förstå och ge förslag till.
 
-- [ ] Gruppen har granskat inkommande Pull Requests väl och ger förslag på förbättringar där det finns möjlighet.
+- [x] Gruppen har granskat inkommande Pull Requests väl och ger förslag på förbättringar där det finns möjlighet.
 
-- [ ] Projektets arbetsgång är i övrigt lätt att följa.
+- [x] Projektets arbetsgång är i övrigt lätt att följa.
 
 ### Vänligen notera att:
 
