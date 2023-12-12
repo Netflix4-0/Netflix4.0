@@ -150,7 +150,7 @@ describe('Bookmarking in movieview', () => {
     expect(bookmarkedButton).toBeInTheDocument();
   });
 
-  test('Removes Bookmarks from a movie when the "Bookmark" button is clicked', async () => {
+  test('Removes Bookmark from a movie when the "Bookmarked" button is clicked', async () => {
     setupMovieView('Casablanca');
 
     const bookmarkButton = screen.getByText('Bookmark', {
