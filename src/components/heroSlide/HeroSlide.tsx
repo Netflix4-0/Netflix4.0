@@ -44,7 +44,7 @@ export const HeroSlide = () => {
       autoplay={{ delay: 3500 }}
     >
       {trendingMovies.map((slide, index) => (
-        <SwiperSlide key={index}>
+        <SwiperSlide key={index} role='slide'>
           <div
             className='hero-slide-container'
             style={{

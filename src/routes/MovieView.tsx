@@ -92,6 +92,7 @@ export const MovieView = () => {
               const target = event.target as HTMLImageElement;
               target.src =
                 'https://github.com/Netflix4-0/Netflix4.0/assets/117076586/0628211e-81a5-482f-84c9-b4cf936ef61b';
+              target.alt = `${movie.title} coming soon!`;
             }}
           />
         </div>
