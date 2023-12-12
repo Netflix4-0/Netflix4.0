@@ -44,7 +44,7 @@ describe('Categories', () => {
     expect(screen.getByTestId('dropdownIconUp')).toBeInTheDocument();
     expect(screen.queryByTestId('dropdownIconDown')).not.toBeInTheDocument();
 
-    // expect Drama category and select it
+    // expect Adventure category and select it
     const adventure = screen.getByText('Adventure');
     expect(adventure).toBeInTheDocument();
     await user.click(adventure);

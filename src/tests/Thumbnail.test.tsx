@@ -61,7 +61,7 @@ describe('Thumbnail', () => {
     expect(thumbnails[0]).toHaveTextContent('The Shawshank Redemption');
     await user.click(thumbnails[0]);
 
-    const actorHeading = await screen.findByText('The Shawshank Redemption');
-    expect(actorHeading).toBeInTheDocument();
+    const titleHeading = await screen.findByText('The Shawshank Redemption');
+    expect(titleHeading).toBeInTheDocument();
   });
 });
