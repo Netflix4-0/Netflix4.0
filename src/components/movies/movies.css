@@ -1,19 +1,27 @@
 .searchBox {
-  margin-top: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: 0.3rem;
 }
+
+.searchInputGroup {
+  position: relative;
+  width: 80%;
+}
+
 .searchInput {
   border-radius: 2rem;
   background-color: #171924;
   color: #f2f2f2;
-  width: 70%;
+  width: 100%;
   padding: 1.5em;
   border-style: none;
   margin-top: 10px;
   font-size: 14px;
+  padding-right: 3em;
 }
 .searchInput::placeholder {
   color: rgba(255, 255, 255, 0.521);
@@ -21,6 +29,7 @@
 
 .movieSection {
   margin-top: 2rem;
+  margin-bottom: 4rem;
   width: 100%;
 }
 .recommended-for-you-heading {
@@ -53,4 +62,13 @@
 .moviesSectionContainer .swiper-slide {
   width: auto;
   flex-shrink: 0;
+}
+
+.search-icon {
+  position: absolute;
+  right: 20px;
+  top: 55%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #f2f2f2;
 }
