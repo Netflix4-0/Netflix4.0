@@ -20,7 +20,7 @@ export const Bookmarks = () => {
 
   return (
     <div className='bookmarks-container'>
-      <h2 style={{ marginTop: '4rem' }}>Bookmarks</h2>
+      <h2>Bookmarks</h2>
       <div className='bookmarked-movies'>
         {bookmarks.map((bookmark, index) => (
           <Thumbnail

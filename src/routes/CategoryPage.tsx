@@ -55,25 +55,21 @@ export const CategoryPage = () => {
           <div className='categoryDropdown'>
             <div
               role='dropdownChoice'
-              className='dropdownChoice'
+              className={`dropdownChoice${
+                selectedCategory === 'All' ? ' selected' : ''
+              }`}
               onClick={() => handleChangeSelectedCategory('All')}
-              style={{
-                background: selectedCategory === 'All' ? '#c1c1c1' : '#000',
-                color: selectedCategory === 'All' ? '#000' : '#FFF',
-              }}
             >
               All
             </div>
             {allGenres.map((genre, index) => (
               <div
                 role='dropdownChoice'
-                className='dropdownChoice'
+                className={`dropdownChoice${
+                  selectedCategory === genre ? ' selected' : ''
+                }`}
                 key={index}
                 onClick={() => handleChangeSelectedCategory(genre)}
-                style={{
-                  background: selectedCategory === genre ? '#c1c1c1' : '#000',
-                  color: selectedCategory === genre ? '#000' : '#FFF',
-                }}
               >
                 {genre}
               </div>

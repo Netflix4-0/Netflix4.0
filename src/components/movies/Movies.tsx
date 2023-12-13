@@ -4,7 +4,7 @@ import { Thumbnail } from '..';
 import { movies } from '../../data';
 import data from '../../data/movies.json';
 import { MovieData } from '../../types/types';
-import './movies.css';
+import './Movies.css';
 
 export const Movies = () => {
   const [search, setSearch] = useState('');
@@ -29,14 +29,16 @@ export const Movies = () => {
   return (
     <div className='moviesSectionContainer'>
       <div className='searchBox'>
-        {/* <h4>Search for your favorites</h4> */}
-        <input
-          className='searchInput'
-          type='search'
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-          placeholder='Search for a movie or actor...'
-        />
+        <div className='searchInputGroup'>
+          <input
+            className='searchInput'
+            type='search'
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            placeholder='Search for a movie or actor...'
+          />
+          <i className='fa fa-search search-icon'></i>{' '}
+        </div>
       </div>
 
       <div className='movieSection'>
