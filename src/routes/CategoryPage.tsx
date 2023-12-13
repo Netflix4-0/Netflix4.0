@@ -30,7 +30,7 @@ export const CategoryPage = () => {
       : movies;
 
   return (
-    <>
+    <div className='category-container'>
       <div className='categoryChoiceWrapper'>
         <div
           className='categorySelector'
@@ -81,7 +81,7 @@ export const CategoryPage = () => {
           </div>
         )}
       </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', padding: '20px' }}>
+      <div className='filtered-movies-container'>
         {filteredMovies.map((movie, index) => (
           <Thumbnail
             key={index}
@@ -93,6 +93,6 @@ export const CategoryPage = () => {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 };

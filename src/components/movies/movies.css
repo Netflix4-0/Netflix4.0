@@ -1,19 +1,19 @@
 .searchBox {
   margin-top: 2rem;
-  padding-left: 15px;
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 0.3rem;
 }
 .searchInput {
-  border-radius: 0.5rem;
-  background: transparent;
-  color: white;
-  width: 100%;
+  border-radius: 2rem;
+  background-color: #171924;
+  color: #f2f2f2;
+  width: 70%;
   padding: 1.5em;
-  border: 1px solid #f2f2f2;
+  border-style: none;
   margin-top: 10px;
-  font-size: 16px;
+  font-size: 14px;
 }
 .searchInput::placeholder {
   color: rgba(255, 255, 255, 0.521);
@@ -23,9 +23,8 @@
   margin-top: 2rem;
   width: 100%;
 }
-.genreTitle {
-  padding-left: 15px;
-  margin: 1rem 0rem 1rem 0rem;
+.recommended-for-you-heading {
+  margin: 1rem 0rem 1rem 2rem;
 }
 
 .searchResult {
@@ -49,10 +48,6 @@
 }
 .movieTitle {
   height: 2rem;
-}
-
-.moviesSectionContainer {
-  padding: 0rem 2rem 2rem 0rem;
 }
 
 .moviesSectionContainer .swiper-slide {
