@@ -1,0 +1,26 @@
+.no-bookmarks-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: f2f2f2;
+  margin-top: 4rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: rem;
+}
+
+.no-bookmarks-container img {
+  max-width: 50%;
+}
+
+.bookmarked-movies {
+  display: flex;
+  flex-wrap: wrap;
+  padding: '0px 25px; 
+}
+
+.bookmarks-container {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}

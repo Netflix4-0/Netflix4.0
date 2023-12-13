@@ -29,10 +29,10 @@ export const Movies = () => {
   return (
     <div className='moviesSectionContainer'>
       <div className='searchBox'>
-        <h4>Search for your favorites</h4>
+        {/* <h4>Search for your favorites</h4> */}
         <input
           className='searchInput'
-          type='text'
+          type='search'
           value={search}
           onChange={e => setSearch(e.target.value)}
           placeholder='Search for a movie or actor...'
@@ -42,7 +42,7 @@ export const Movies = () => {
       <div className='movieSection'>
         {search === '' ? (
           <div>
-            <h2 className='genreTitle'>Recommended for you</h2>
+            <h2 className='recommended-for-you-heading'>Recommended for you</h2>
             <Swiper
               spaceBetween={10}
               slidesPerView={'auto'}
