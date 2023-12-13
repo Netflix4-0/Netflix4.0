@@ -12,7 +12,7 @@ export function useSessionStorageState<State>(
 
   useEffect(() => {
     sessionStorage.setItem(key, JSON.stringify(state));
-  }, [state]);
+  }, [key, state]);
 
   return [state, setState] as const;
 }
