@@ -22,12 +22,14 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 2rem;
+  gap: 10px;
 }
 
 .bookmarks-container {
   padding-left: 4rem;
   padding-right: 4rem;
   margin: 1rem auto;
+  margin-bottom: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
