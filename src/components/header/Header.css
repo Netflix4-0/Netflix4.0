@@ -32,14 +32,14 @@ header.visible {
   font-weight: 600;
 }
 
-.logo {
+.headerLogo {
   height: 100%;
   width: auto;
   object-fit: cover;
   transition: 0.15s;
 }
 
-.logo:hover {
+.headerLogo:hover {
   transform: scale(1.012);
 }
 
