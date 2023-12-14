@@ -23,18 +23,34 @@
   position: relative;
   align-items: flex-end;
   background-color: #111111;
+  border-radius: 10px;
 }
 
 .thumbnailContainer .fa-bookmark {
-  padding: 10px;
-  top: 5px;
-  right: 0;
-  color: #fa7800;
+  padding: 8px;
+  top: 21px;
+  right: -8px;
+  color: #3e5083fb;
   position: absolute;
+  transition: color 0.3s;
+  font-size: 3.8rem;
+}
+
+.thumbnailContainer .fa-bookmark:hover {
+  color: #4b5f7c;
+}
+
+.thumbnailContainer .bookmarked .fa-bookmark {
+  color: #01bd36;
+}
+
+.bookmarked .fa-bookmark:hover {
+  color: #47a34a;
 }
 
 .thumbnail img {
   height: 23rem;
+  border-radius: 10px;
 }
 .bookmarkButton {
   background: none;
@@ -45,6 +61,42 @@
   margin: 0;
   transition: 0.15s;
 }
-.bookmarkButton:hover {
-  color: #fa7900b1;
+
+.bookmarkButton::before {
+  content: '+';
+  position: absolute;
+  top: 7%;
+  right: 1.5%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: white;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+  opacity: 1;
+  z-index: 10;
+}
+
+.bookmarkButton.bookmarked::before {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.bookmarkButton::after {
+  content: '✓';
+  position: absolute;
+  top: 2%;
+  right: 5.5%;
+  transform: translate(-50%, -50%) scale(0);
+  font-size: 1.5rem;
+  color: white;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+  opacity: 0;
+}
+
+.bookmarkButton.bookmarked::after {
+  opacity: 1;
+  transform: scale(1);
 }

@@ -38,6 +38,7 @@ header.visible {
   object-fit: cover;
   transition: 0.15s;
 }
+
 .logo:hover {
   transform: scale(1.012);
 }
