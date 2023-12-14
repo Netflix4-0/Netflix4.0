@@ -33,7 +33,7 @@
 }
 
 .is-trending-label {
-  padding: 5px 10px;
+  padding: 0.313rem 0.625rem;
   background-image: linear-gradient(
     to right top,
     #0041be,
@@ -68,20 +68,20 @@
   }
   .is-trending-label {
     width: 6.2rem;
-    padding: 3px 8px;
+    padding: 0.1875rem 0.5rem;
     font-size: 0.8rem;
   }
 }
 
 .hero-slide-container button {
   width: 9rem;
-  padding: 15px 0px;
-  border-radius: 5px;
-  margin-right: 10px;
+  padding: 1rem 0rem;
+  border-radius: 0.313rem;
+  margin-right: 0.625rem;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 0.625rem;
 }
 
 .hero-slide-bookmark {
@@ -123,7 +123,7 @@
 }
 
 .hero-slide-icon {
-  margin-right: 10px;
+  margin-right: 0.625rem;
 }
 
 .swiper-pagination .swiper-pagination-bullet {

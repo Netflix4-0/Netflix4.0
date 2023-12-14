@@ -90,7 +90,7 @@
 }
 
 .trending-text {
-  padding: 5px 10px;
+  padding: 0.313rem 0.625rem;
   background-image: linear-gradient(
     to right top,
     #0041be,
@@ -108,8 +108,8 @@
 
 .movie-view-bookmark {
   width: 9rem;
-  padding: 15px 0px;
-  border-radius: 5px;
+  padding: 0.938rem 0rem;
+  border-radius: 0.313rem;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -143,7 +143,7 @@
   }
   .trending-text {
     width: 6.2rem;
-    padding: 3px 8px;
+    padding: 0.188rem 0.5rem;
     font-size: 0.8rem;
     margin-top: 1.5rem;
   }
@@ -163,8 +163,8 @@
 
   .movie-view-bookmark {
     width: 8rem;
-    padding: 8px 0px;
-    margin-right: 10px;
+    padding: 0.5rem 0rem;
+    margin-right: 0.625rem;
     font-size: 0.9rem;
   }
 }

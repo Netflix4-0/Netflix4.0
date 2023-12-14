@@ -42,8 +42,8 @@
 @media screen and (max-width: 700px) {
   .error-page-button {
     width: 8rem;
-    padding: 8px 0px;
-    margin-right: 10px;
+    padding: 0.5rem 0rem;
+    margin-right: 0.625rem;
     font-size: 0.9rem;
   }
 }
