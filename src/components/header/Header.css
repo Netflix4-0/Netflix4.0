@@ -9,31 +9,37 @@ header {
   display: flex;
   align-items: center;
   gap: 4rem;
-  padding: 0 1rem;
+  padding: 0 2rem;
   transition: background-color 0.3s;
 }
 
 header.visible {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(23, 25, 36, 0.8);
 }
 
 .link {
   text-decoration: none;
-  color: white;
+  color: #f2f2f2;
   cursor: pointer;
   transition: 0.15s;
 }
+.link.active,
 .link:hover {
   color: #49a1f0;
 }
 
-.logo {
+.link.active {
+  font-weight: 600;
+}
+
+.headerLogo {
   height: 100%;
   width: auto;
   object-fit: cover;
   transition: 0.15s;
 }
-.logo:hover {
+
+.headerLogo:hover {
   transform: scale(1.012);
 }
 

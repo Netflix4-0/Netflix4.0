@@ -52,10 +52,12 @@ export const Thumbnail = ({
           {bookmarkedMovie(movieData) ? (
             <button
               title='Bookmark'
-              className='bookmarkButton'
+              className={`bookmarkButton ${
+                bookmarkedMovie(movieData) ? 'bookmarked' : ''
+              }`}
               onClick={e => handleBookmark(e, movieData)}
             >
-              <i className='fa-sharp fa-solid fa-bookmark fa-2xl bookmarkIcon'></i>
+              <i className='fa-sharp fa-solid fa-bookmark fa-2xl'></i>
             </button>
           ) : (
             <button
@@ -63,7 +65,7 @@ export const Thumbnail = ({
               className='bookmarkButton'
               onClick={e => handleBookmark(e, movieData)}
             >
-              <i className='fa-sharp fa-regular fa-bookmark fa-2xl bookmarkIcon'></i>
+              <i className='fa-sharp fa-solid fa-bookmark fa-2xl'></i>
             </button>
           )}
           <img
