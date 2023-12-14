@@ -4,7 +4,7 @@ import { Thumbnail } from '..';
 import { movies } from '../../data';
 import data from '../../data/movies.json';
 import { MovieData } from '../../types/types';
-import './Movies.css';
+import './Movies1.css';
 
 export const Movies = () => {
   const [search, setSearch] = useState('');
