@@ -172,7 +172,7 @@ describe('Bookmark related tests:', () => {
   });
 
   // Since the users can not add bookmarks on the bookmarks page this test is done on the category page
-  test.only('Bookmarks persist in session storage', async () => {
+  test('Bookmarks persist in session storage', async () => {
     render(
       <MemoryRouter>
         <BookmarkProvider>
@@ -191,10 +191,8 @@ describe('Bookmark related tests:', () => {
 
     // Finds the Element which cointains the text 'Inception'
     // and the parent element it's in
-    const inceptionElement = await screen.findByText(
-      'The Shawshank Redemption'
-    );
-    const parentElement = inceptionElement.closest('div');
+    const movieElement = await screen.findByText('The Shawshank Redemption');
+    const parentElement = movieElement.closest('div');
 
     if (!parentElement) {
       throw new Error('Parent element not found');
