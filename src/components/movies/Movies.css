@@ -19,8 +19,8 @@
   width: 100%;
   padding: 1.5em;
   border-style: none;
-  margin-top: 10px;
-  font-size: 14px;
+  margin-top: 0.625rem;
+  font-size: 0.875rem;
   padding-right: 3em;
 }
 .searchInput::placeholder {
@@ -66,7 +66,7 @@
 
 .search-icon {
   position: absolute;
-  right: 20px;
+  right: 1.25rem;
   top: 55%;
   transform: translateY(-50%);
   pointer-events: none;
