@@ -172,27 +172,7 @@ describe('Bookmark related tests:', () => {
   });
 
   // Since the users can not add bookmarks on the bookmarks page this test is done on the category page
-  test('Bookmarks persist in session storage', async () => {
-    // Mock sessionStorage
-    const sessionStorageMock = (function () {
-      let store: { [key: string]: string } = {};
-      return {
-        getItem(key: string) {
-          const storedValue = store[key];
-          return storedValue ? JSON.parse(storedValue) : null;
-        },
-        setItem(key: string, value: any) {
-          store[key] = JSON.stringify(value);
-        },
-        clear() {
-          store = {};
-        },
-      };
-    })();
-    Object.defineProperty(window, 'sessionStorage', {
-      value: sessionStorageMock,
-    });
-
+  test.only('Bookmarks persist in session storage', async () => {
     render(
       <MemoryRouter>
         <BookmarkProvider>
@@ -203,7 +183,7 @@ describe('Bookmark related tests:', () => {
 
     const user = userEvent.setup();
 
-    // Checks that the session storage is an empty array at the start
+    // Checks that the session storage is empty
     let sessionBookmarks = JSON.parse(
       sessionStorage.getItem('bookmarkedMovies') || '[]'
     );
