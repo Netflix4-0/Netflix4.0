@@ -30,7 +30,7 @@ export const CategoryPage = () => {
       : movies;
 
   return (
-    <>
+    <div className='category-container'>
       <div className='categoryChoiceWrapper'>
         <div
           className='categorySelector'
@@ -55,25 +55,21 @@ export const CategoryPage = () => {
           <div className='categoryDropdown'>
             <div
               role='dropdownChoice'
-              className='dropdownChoice'
+              className={`dropdownChoice${
+                selectedCategory === 'All' ? ' selected' : ''
+              }`}
               onClick={() => handleChangeSelectedCategory('All')}
-              style={{
-                background: selectedCategory === 'All' ? '#c1c1c1' : '#000',
-                color: selectedCategory === 'All' ? '#000' : '#FFF',
-              }}
             >
               All
             </div>
             {allGenres.map((genre, index) => (
               <div
                 role='dropdownChoice'
-                className='dropdownChoice'
+                className={`dropdownChoice${
+                  selectedCategory === genre ? ' selected' : ''
+                }`}
                 key={index}
                 onClick={() => handleChangeSelectedCategory(genre)}
-                style={{
-                  background: selectedCategory === genre ? '#c1c1c1' : '#000',
-                  color: selectedCategory === genre ? '#000' : '#FFF',
-                }}
               >
                 {genre}
               </div>
@@ -81,7 +77,7 @@ export const CategoryPage = () => {
           </div>
         )}
       </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', padding: '20px' }}>
+      <div className='filtered-movies-container'>
         {filteredMovies.map((movie, index) => (
           <Thumbnail
             key={index}
@@ -93,6 +89,6 @@ export const CategoryPage = () => {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 };

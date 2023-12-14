@@ -68,7 +68,7 @@ describe('Bookmark related tests:', () => {
 
     let heading = screen.queryByRole('heading', {
       name: /bookmarks/i,
-      level: 1,
+      level: 2,
     });
 
     // Checks that the bookmarks page is not rendered yet
@@ -97,7 +97,7 @@ describe('Bookmark related tests:', () => {
 
     heading = screen.getByRole('heading', {
       name: /Bookmarks/i,
-      level: 1,
+      level: 2,
     });
 
     // Checks that we're on the bookmarks page
@@ -151,7 +151,7 @@ describe('Bookmark related tests:', () => {
 
     const heading = screen.getByRole('heading', {
       name: /Bookmarks/i,
-      level: 1,
+      level: 2,
     });
     const bookmarksDiv = heading.closest('div');
 

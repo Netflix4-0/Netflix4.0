@@ -1,28 +1,81 @@
+.category-container {
+  padding-left: 4rem;
+  padding-right: 4rem;
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1500px;
+}
 .categoryChoiceWrapper {
-    width: 200px;    
-    margin: 75px 0 0 40px;
-    font-size: 24px;
-    position: relative;
+  width: 200px;
+  margin-bottom: 1.5rem;
+  font-size: 20px;
+  position: relative;
+  margin-top: 2rem;
 }
 
 .categorySelector {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #c1c1c1;
-    padding: 5px;
-
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 5px;
 }
 
 .categoryDropdown {
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 310px;
-    overflow: scroll;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 0 5px #FFF;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  font-size: 16px;
+  height: 310px;
+  overflow: auto;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 0 5px #f2f2f2;
+  background: #171924;
 }
 
 .dropdownChoice {
-    padding: 10px 5px;
+  padding: 10px 5px;
+  cursor: pointer;
+}
+
+.dropdownChoice.selected {
+  background: #243b55;
+  color: #f2f2f2;
+}
+
+.dropdownChoice:hover {
+  background: #243b55;
+}
+
+.filtered-movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media screen and (max-width: 1439px) {
+  .category-container {
+    max-width: 1200px;
+  }
+}
+
+@media screen and (max-width: 1181px) {
+  .category-container {
+    max-width: 940px;
+  }
+}
+
+@media screen and (max-width: 922px) {
+  .category-container {
+    max-width: 666px;
+  }
+}
+
+@media screen and (max-width: 663px) {
+  .category-container {
+    max-width: 300px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }

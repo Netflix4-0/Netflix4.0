@@ -1,0 +1,67 @@
+.no-bookmarks-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f2f2f2;
+  margin-top: 4rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: rem;
+}
+
+.no-bookmarks-container img {
+  max-width: 50%;
+}
+
+.no-bookmarks-container h2 {
+  margin-bottom: 1rem;
+}
+
+.bookmarked-movies {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  gap: 10px;
+}
+
+.bookmarks-container {
+  padding-left: 4rem;
+  padding-right: 4rem;
+  margin: 1rem auto;
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1500px;
+}
+
+.bookmarks-container h2 {
+  margin-top: 6rem;
+}
+
+@media screen and (max-width: 1439px) {
+  .bookmarks-container {
+    max-width: 1200px;
+  }
+}
+
+@media screen and (max-width: 1181px) {
+  .bookmarks-container {
+    max-width: 940px;
+  }
+}
+
+@media screen and (max-width: 922px) {
+  .bookmarks-container {
+    max-width: 666px;
+  }
+}
+
+@media screen and (max-width: 663px) {
+  .bookmarks-container {
+    max-width: 300px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
