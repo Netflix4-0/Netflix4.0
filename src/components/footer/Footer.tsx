@@ -13,7 +13,7 @@ export const Footer = () => {
       </Link>
       <div className='linksContainer'>
         <div className='footerLinks'>
-          <h4>We Offer</h4>
+          <h3>We Offer</h3>
           <Link className='link' to={''}>
             Top Notch Streaming
           </Link>
@@ -22,7 +22,7 @@ export const Footer = () => {
           </Link>
         </div>
         <div className='footerLinks'>
-          <h4>Contact</h4>
+          <h3>Contact</h3>
           <Link className='link' to={''}>
             Head Office
           </Link>
@@ -34,7 +34,7 @@ export const Footer = () => {
           </Link>
         </div>
         <div className='footerLinks'>
-          <h4>Terms of use</h4>
+          <h3>Terms of use</h3>
           <Link className='link' to={''}>
             Agreement
           </Link>
@@ -43,7 +43,7 @@ export const Footer = () => {
           </Link>
         </div>
         <div className='footerLinks'>
-          <h4>Privacy</h4>
+          <h3>Privacy</h3>
           <Link className='link' to={''}>
             Your data
           </Link>
@@ -55,7 +55,7 @@ export const Footer = () => {
           </Link>
         </div>
         <div className='footerLinks'>
-          <h4>FAQ</h4>
+          <h3>FAQ</h3>
           <Link className='link' to={''}>
             Kids mode
           </Link>
