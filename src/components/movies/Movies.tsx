@@ -65,17 +65,19 @@ export const Movies = () => {
             </Swiper>
           </div>
         ) : (
-          <div className='searchResult'>
-            {filteredMovies.map((m: MovieData, index: number) => (
-              <Thumbnail
-                key={index}
-                title={m.title}
-                releaseYear={m.year}
-                rating={m.rating}
-                movieData={m}
-                thumbnail={m.thumbnail}
-              />
-            ))}
+          <div className='searchResult-container'>
+            <div className='searchResult'>
+              {filteredMovies.map((m: MovieData, index: number) => (
+                <Thumbnail
+                  key={index}
+                  title={m.title}
+                  releaseYear={m.year}
+                  rating={m.rating}
+                  movieData={m}
+                  thumbnail={m.thumbnail}
+                />
+              ))}
+            </div>
           </div>
         )}
       </div>

@@ -47,11 +47,12 @@ header.visible {
   header {
     gap: 1rem;
     height: 3rem;
+    justify-content: space-around;
   }
   .headerLogo {
     height: 2rem;
   }
   .link {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
   }
 }
