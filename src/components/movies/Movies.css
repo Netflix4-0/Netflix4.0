@@ -36,11 +36,22 @@
   margin: 1rem 0rem 1rem 2rem;
 }
 
+.searchResult-container {
+  padding-left: 4rem;
+  padding-right: 4rem;
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 93.75rem;
+}
+
 .searchResult {
   margin-top: 2rem;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  gap: 0.625rem;
 }
 
 .allMoviesInGenre::-webkit-scrollbar {
@@ -71,4 +82,30 @@
   transform: translateY(-50%);
   pointer-events: none;
   color: #f2f2f2;
+}
+
+@media screen and (max-width: 1439px) {
+  .searchResult-container {
+    max-width: 1200px;
+  }
+}
+
+@media screen and (max-width: 1181px) {
+  .searchResult-container {
+    max-width: 940px;
+  }
+}
+
+@media screen and (max-width: 922px) {
+  .searchResult-container {
+    max-width: 666px;
+  }
+}
+
+@media screen and (max-width: 663px) {
+  .searchResult-container {
+    max-width: 300px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }

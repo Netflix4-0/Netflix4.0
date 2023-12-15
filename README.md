@@ -44,11 +44,11 @@ Samtliga features måste vara implementerade för ett G. Sidan är uppdelad i fy
 
 - [x] Man ska kunna bokmärka en film från thumbnailen.
 
-- [ ] Alla sidor ska vara mobilanpassade.
+- [x] Alla sidor ska vara mobilanpassade.
 
 - [x] Vid varje thumbnail ska årtal och åldergräns visas på filmen.
 
-- [ ] Man ska kunna navigera mellan olika sidor på ett intuitivt sätt.
+- [x] Man ska kunna navigera mellan olika sidor på ett intuitivt sätt.
 
 ### Testning
 

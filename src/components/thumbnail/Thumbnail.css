@@ -4,6 +4,11 @@
   justify-content: space-between;
   max-width: 15.625rem;
   margin: 0.313rem;
+  transition: 0.15s;
+}
+
+.thumbnailContainer:hover {
+  transform: scale(1.012);
 }
 
 .title {

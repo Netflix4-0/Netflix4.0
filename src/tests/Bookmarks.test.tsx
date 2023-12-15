@@ -46,10 +46,10 @@ describe('Bookmark related tests:', () => {
     const bookmarkIcon = addBookmarkButton.querySelector('i');
 
     // Checks that the bookmark icon is solid which means added to bookmarks
-    await expect(bookmarkIcon).toHaveClass('fa-solid');
+    expect(bookmarkIcon).toHaveClass('fa-solid');
 
     // Also double checks by checking that the bookmark icon is not in the "not added" state
-    await expect(bookmarkIcon).not.toHaveClass('fa-regular');
+    expect(bookmarkIcon).not.toHaveClass('fa-regular');
   });
 
   test('The user can view added bookmarks on the bookmarks page', async () => {
@@ -212,8 +212,7 @@ describe('Bookmark related tests:', () => {
     );
     expect(sessionBookmarks).toContainEqual(movie);
 
-    const removeBookmarkButton =
-      await within(parentElement).getByRole('button');
+    const removeBookmarkButton = within(parentElement).getByRole('button');
     await user.click(removeBookmarkButton);
 
     // Check that the bookmark is not in session storage anymore
